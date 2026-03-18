@@ -14,10 +14,10 @@ Puedes consultar el documento completo en el siguiente enlace:
 
 ## Integrantes del Equipo
 
-- **Gabriela Vanessa Alberto Escalón-AE252972 ** – Grupo Teórico: G03T 
+- **Gabriela Vanessa Alberto Escalón-AE252972** – Grupo Teórico: G03T 
 - **Katherine Gissella Garay Alvarado-GA252993** – Grupo Teórico: G03T
-- **Mariana Guadalupe Ramírez Lara-RL252957 ** – Grupo Teórico: G03T 
-- **Samuel Eliezer Rivera De Paz-RD253031 ** – Grupo Teórico: G03T 
+- **Mariana Guadalupe Ramírez Lara-RL252957** – Grupo Teórico: G03T 
+- **Samuel Eliezer Rivera De Paz-RD253031** – Grupo Teórico: G03T 
 
 ---
 
