@@ -10,7 +10,6 @@
 </head>
 <body>
 
-    {{-- Loader: una sola línea, igual que en todas las demás páginas --}}
     <x-loader />
 
     <div class="main-container">

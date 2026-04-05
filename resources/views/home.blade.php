@@ -18,10 +18,7 @@
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
 </head>
 <body>
-
-{{-- ============================================================
-     NAVBAR
-============================================================ --}}
+<x-loader />
 <nav class="navbar navbar-light bg-white px-4 py-3">
     <a class="navbar-brand d-flex flex-column align-items-center" href="#">
         {{-- ESPACIO PARA LOGO --}}
