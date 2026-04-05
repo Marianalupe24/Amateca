@@ -1,0 +1,662 @@
+/* ============================================================
+   home.css — Amateca Librería
+   Fuentes: Italiana (títulos grandes) | Poppins (texto pequeño)
+   Paleta: Rosa pálido #F9C5C5 | Rosa botón #E8917A | Marrón categorías #7D6363
+============================================================ */
+
+/* ---------- Variables ---------- */
+:root {
+    --rosa-claro:    #FDE8E8;
+    --rosa-medio:    #FD9E9E;
+    --rosa-boton:    #FD9E9E;
+    --rosa-boton-hover: #ae5c9c;
+    --marron-cat:    #7D6363;
+    --marron-texto:  #2C2C2C;
+    --blanco:        #FFFFFF;
+    --gris-placeholder: #D5D5D5;
+    --font-italiana: 'Italiana', serif;
+    --font-poppins:  'Poppins', sans-serif;
+}
+
+/* ---------- Base ---------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-poppins);
+    color: var(--marron-texto);
+    background-color: var(--blanco);
+    overflow-x: hidden;
+}
+
+/* ---------- Tipografía global ---------- */
+.font-italiana {
+    font-family: var(--font-italiana) !important;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: var(--font-italiana);
+}
+
+p, a, span, li, label, input, button, small {
+    font-family: var(--font-poppins);
+}
+
+/* ============================================================
+   NAVBAR
+============================================================ */
+.navbar {
+    border-bottom: none;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--blanco) !important;
+}
+
+.logo-placeholder {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.brand-name {
+    font-family: var(--font-poppins);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--marron-texto);
+    margin-top: 2px;
+}
+
+/* ---------- Botón hero (rosa redondeado) ---------- */
+.btn-hero {
+    background-color: var(--rosa-boton);
+    color: var(--blanco);
+    font-family: var(--font-poppins);
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 12px;
+    padding: 10px 28px;
+    transition: background 0.25s, transform 0.2s;
+}
+
+.btn-hero:hover {
+    background-color: var(--rosa-boton-hover);
+    color: var(--blanco);
+    transform: translateY(-2px);
+}
+
+/* ============================================================
+   HERO SECTION
+============================================================ */
+.hero-section {
+    position: relative;
+    background: var(--blanco);
+    min-height: 88vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.min-vh-80 {
+    min-height: 80vh;
+}
+
+.hero-text {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.hero-title {
+    font-family: var(--font-italiana);
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    line-height: 1.15;
+    color: var(--marron-texto);
+}
+
+.hero-title .font-italiana {
+    font-size: clamp(3rem, 5.5vw, 4.6rem);
+}
+
+/* Fondo oval rosa detrás de la imagen hero */
+.hero-image-col {
+    position: relative;
+    min-height: 70vh;
+}
+
+.hero-oval-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 480px;
+    height: 480px;
+    background-color: var(--rosa-medio);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+/* ESPACIO PARA IMAGEN HERO */
+.hero-img-placeholder {
+    position: relative;
+    z-index: 1;
+    width: 420px;
+    height: 460px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.hero-book-img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 20px 40px rgba(0,0,0,0.12));
+}
+
+/* ============================================================
+   DIVISORES DE OLAS (SVG inline vía CSS clip-path)
+============================================================ */
+.wave-divider {
+    width: 100%;
+    height: 40px;
+    background-repeat: repeat-x;
+    background-size: 60px 40px;
+}
+
+/* Ola blanca sobre fondo rosa (abajo del hero) */
+.wave-bottom-white {
+    background-color: var(--rosa-claro);
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 40'%3E%3Cpath d='M0 20 Q15 0 30 20 Q45 40 60 20 L60 40 L0 40Z' fill='white'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 40'%3E%3Cpath d='M0 20 Q15 0 30 20 Q45 40 60 20 L60 40 L0 40Z' fill='white'/%3E%3C/svg%3E");
+    -webkit-mask-repeat: repeat-x;
+    mask-repeat: repeat-x;
+    background-color: var(--blanco);
+}
+
+/* ============================================================
+   SECCIÓN CARRUSEL DE LIBROS
+============================================================ */
+.carousel-section {
+    background-color: var(--rosa-claro);
+    padding-top: 60px;
+    padding-bottom: 60px;
+    position: relative;
+}
+
+.section-title {
+    font-family: var(--font-italiana);
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    color: var(--marron-texto);
+}
+
+.subtitle-text {
+    font-family: var(--font-poppins);
+    font-size: 1rem;
+    color: var(--marron-texto);
+}
+
+/* ----- Carrusel 3D ----- */
+.book-carousel-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+    perspective: 1200px;
+}
+
+.book-carousel {
+    position: relative;
+    width: 100%;
+    height: 360px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.book-item {
+    position: absolute;
+    width: 200px;
+    height: 300px;
+    border-radius: 6px;
+    overflow: hidden;
+    transition: all 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    cursor: pointer;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.18);
+}
+
+.book-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 6px;
+}
+
+/* Estado activo: centro, grande, opaco */
+.book-item.active {
+    transform: translateX(0) scale(1.1) rotateY(0deg);
+    z-index: 5;
+    opacity: 1;
+    filter: none;
+}
+
+/* Un lugar a la derecha */
+.book-item.side-right {
+    transform: translateX(210px) scale(0.82) rotateY(-15deg);
+    z-index: 3;
+    opacity: 0.7;
+    filter: brightness(0.75);
+}
+
+/* Un lugar a la izquierda */
+.book-item.side-left {
+    transform: translateX(-210px) scale(0.82) rotateY(15deg);
+    z-index: 3;
+    opacity: 0.7;
+    filter: brightness(0.75);
+}
+
+/* Dos lugares a la derecha */
+.book-item.far-right {
+    transform: translateX(370px) scale(0.65) rotateY(-20deg);
+    z-index: 1;
+    opacity: 0.45;
+    filter: brightness(0.6);
+}
+
+/* Dos lugares a la izquierda */
+.book-item.far-left {
+    transform: translateX(-370px) scale(0.65) rotateY(20deg);
+    z-index: 1;
+    opacity: 0.45;
+    filter: brightness(0.6);
+}
+
+.book-item.hidden {
+    transform: translateX(0) scale(0.4);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Flechas del carrusel */
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    background: var(--blanco);
+    color: var(--marron-texto);
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.15);
+    transition: background 0.2s, transform 0.2s;
+}
+
+.carousel-arrow:hover {
+    background: var(--rosa-boton);
+    color: var(--blanco);
+    transform: translateY(-50%) scale(1.08);
+}
+
+.arrow-left  { left: 10px; }
+.arrow-right { right: 10px; }
+
+/* ============================================================
+   SECCIÓN PROMOCIONES
+============================================================ */
+.promo-section {
+    background: var(--blanco);
+    padding-top: 70px;
+    padding-bottom: 0;
+}
+
+.promo-oval-bg {
+    width: 90px;
+    height: 90px;
+    min-width: 90px;
+    background: var(--rosa-claro);
+    border-radius: 50%;
+}
+
+.promo-desc {
+    font-family: var(--font-poppins);
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--marron-texto);
+    line-height: 1.7;
+}
+
+.discount-badge {
+    width: 120px;
+    height: 120px;
+    background: #CC1F1F;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--blanco);
+    font-family: var(--font-poppins);
+    font-weight: 700;
+}
+
+.discount-number {
+    font-size: 2.8rem;
+    line-height: 1;
+}
+
+.discount-percent {
+    font-size: 1.3rem;
+    align-self: flex-start;
+    margin-top: 8px;
+}
+
+/* ESPACIO IMAGEN LIBROS EN FILA */
+.books-row-placeholder {
+    width: 100%;
+    min-height: 180px;
+    overflow: hidden;
+    position: relative;
+}
+
+.books-row-img {
+    width: 100%;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+}
+
+/* ============================================================
+   SECCIÓN CATEGORÍAS
+============================================================ */
+.categories-section {
+    background: var(--blanco);
+    padding-top: 70px;
+}
+
+.category-card {
+    display: block;
+    text-decoration: none;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    aspect-ratio: 3/4;
+    background-color: var(--marron-cat);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+}
+
+/* ESPACIO PARA IMAGEN CATEGORÍA */
+.cat-img-placeholder {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+
+.cat-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.55;
+    display: block;
+}
+
+.cat-name {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: var(--blanco);
+    font-family: var(--font-poppins);
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 30px 10px 16px;
+    background: linear-gradient(to top, rgba(80,50,50,0.85) 0%, transparent 100%);
+}
+
+/* Ola al final de categorías */
+.wave-bottom-pink {
+    height: 50px;
+    background-color: var(--blanco);
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 50'%3E%3Cpath d='M0 25 Q15 0 30 25 Q45 50 60 25 L60 50 L0 50Z' fill='%23FDE8E8'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 50'%3E%3Cpath d='M0 25 Q15 0 30 25 Q45 50 60 25 L60 50 L0 50Z' fill='%23FDE8E8'/%3E%3C/svg%3E");
+    -webkit-mask-repeat: repeat-x;
+    mask-repeat: repeat-x;
+    background-color: var(--rosa-claro);
+}
+
+/* ============================================================
+   SECCIÓN MÁS POPULARES
+============================================================ */
+.populares-section {
+    background-color: var(--rosa-claro);
+    padding-top: 60px;
+    padding-bottom: 70px;
+}
+
+.wave-top-pink-light {
+    height: 45px;
+    background-color: var(--rosa-claro);
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 45'%3E%3Cpath d='M0 22 Q15 45 30 22 Q45 0 60 22 L60 0 L0 0Z' fill='white'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 45'%3E%3Cpath d='M0 22 Q15 45 30 22 Q45 0 60 22 L60 0 L0 0Z' fill='white'/%3E%3C/svg%3E");
+    -webkit-mask-repeat: repeat-x;
+    mask-repeat: repeat-x;
+    background-color: var(--blanco);
+    margin-bottom: 20px;
+}
+
+.populares-title {
+    font-family: var(--font-poppins);
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--marron-texto);
+}
+
+/* Tarjeta de libro */
+.book-card {
+    background: var(--blanco);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.25s, box-shadow 0.25s;
+    height: 100%;
+}
+
+.book-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 28px rgba(0,0,0,0.12);
+}
+
+/* ESPACIO IMAGEN LIBRO EN TARJETA */
+.book-card-img-placeholder {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: var(--gris-placeholder);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.book-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    position: absolute;
+    inset: 0;
+}
+
+.img-placeholder-icon {
+    font-size: 2.2rem;
+    color: #ABABAB;
+    z-index: 1;
+}
+
+.book-card-body {
+    padding: 12px 14px;
+}
+
+.book-card-title {
+    font-family: var(--font-poppins);
+    font-size: 0.88rem;
+    font-weight: 600;
+    margin-bottom: 2px;
+    color: var(--marron-texto);
+}
+
+.book-card-price {
+    font-family: var(--font-poppins);
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--marron-texto);
+    margin-bottom: 2px;
+}
+
+.book-card-autor {
+    font-family: var(--font-poppins);
+    font-size: 0.78rem;
+    color: #888;
+    margin-bottom: 0;
+}
+
+.btn-ver-mas {
+    padding: 12px 50px;
+    font-size: 1rem;
+}
+
+/* ============================================================
+   SECCIÓN SOBRE NUESTRA LIBRERÍA
+============================================================ */
+.about-section {
+    background: var(--blanco);
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.about-text {
+    font-family: var(--font-poppins);
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: var(--marron-texto);
+    margin-bottom: 0.5rem;
+}
+
+.about-subtitle {
+    font-family: var(--font-italiana);
+    font-size: 1.6rem;
+    color: var(--marron-texto);
+    border-bottom: 1px solid #eee;
+    padding-bottom: 4px;
+    margin-bottom: 10px;
+}
+
+.about-list {
+    list-style: disc;
+    padding-left: 1.4rem;
+}
+
+.about-list li {
+    font-family: var(--font-poppins);
+    font-size: 0.92rem;
+    line-height: 1.9;
+    color: var(--marron-texto);
+}
+
+/* ESPACIO IMAGEN PILA DE LIBROS */
+.about-img-placeholder {
+    width: 100%;
+    max-width: 340px;
+    min-height: 420px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.about-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.4rem;
+        text-align: center;
+    }
+
+    .hero-text {
+        padding: 40px 24px 20px;
+        text-align: center;
+    }
+
+    .hero-oval-bg {
+        width: 300px;
+        height: 300px;
+    }
+
+    .hero-img-placeholder {
+        width: 280px;
+        height: 300px;
+    }
+
+    .book-item.far-left,
+    .book-item.far-right {
+        display: none;
+    }
+
+    .book-item.side-left  { transform: translateX(-150px) scale(0.75) rotateY(15deg); }
+    .book-item.side-right { transform: translateX(150px) scale(0.75) rotateY(-15deg); }
+
+    .about-img-placeholder {
+        min-height: 250px;
+        max-width: 100%;
+        margin-top: 30px;
+    }
+
+    .discount-badge {
+        width: 90px;
+        height: 90px;
+    }
+
+    .discount-number { font-size: 2rem; }
+}

@@ -1,4 +1,5 @@
 
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Italiana&display=swap');
 
@@ -20,10 +21,11 @@ body {
 /* ── Contenedor principal ── */
 .main-container {
     height: 100vh;
-    display: flex;
     position: relative;
+    display: flex;
 }
 
+/* ── Logo arriba a la izquierda ── */
 .logo {
     position: absolute;
     top: 22px;
@@ -32,10 +34,11 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 4px;
 }
+
 .logo img {
-    width: 54px;
+    width: 54px;   /* ← ajusta según el tamaño de tu logo */
     height: auto;
 }
 
@@ -48,75 +51,41 @@ body {
 }
 
 /* ══════════════════════════════
-   LADO IZQUIERDO — Imagen
-   ══════════════════════════════ */
-.image-section {
-    width: 42%;
-    position: relative;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-}
-
-/* Forma rosa en arco (izquierda, abierta hacia la derecha) */
-.pink-shape {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 85%;
-    height: 100%;
-    background-color: #f2d4d4;
-    border-top-right-radius: 50% 50%;
-    border-bottom-right-radius: 50% 50%;
-}
-
-/* Imagen del libro */
-.book-img {
-    position: relative;
-    width: 380px;
-    max-width: 92%;
-    z-index: 2;
-    object-fit: contain;
-    /* La imagen toca el borde inferior */
-    margin-bottom: 0;
-    align-self: flex-end;
-}
-
-/* ══════════════════════════════
-   LADO DERECHO — Formulario
+   LADO IZQUIERDO — Formulario
    ══════════════════════════════ */
 .form-section {
-    width: 58%;
+    width: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 40px 60px;
     background-color: #ffffff;
+    padding: 40px;
+    position: relative;
+    z-index: 2;
 }
 
 .form-box {
     width: 100%;
-    max-width: 480px;
+    max-width: 370px;
 }
 
 /* Título con fuente Italiana */
 .form-box h1 {
     font-family: 'Italiana', serif;
-    font-size: 46px;
+    font-size: 42px;
     font-weight: 400;
     color: #2c2c2c;
-    margin-bottom: 36px;
-    text-align: center;
+    margin-bottom: 44px;
     line-height: 1.2;
 }
 
 /* Grupos de campo */
 .field-group {
     position: relative;
-    margin-bottom: 26px;
+    margin-bottom: 28px;
 }
 
-/* Label flotante */
+/* Label flotante estilo material */
 .field-group label {
     font-family: 'Poppins', sans-serif;
     font-size: 13px;
@@ -124,16 +93,16 @@ body {
     color: #2c2c2c;
     position: absolute;
     top: -10px;
-    left: 22px;
+    left: 20px;
     background: #ffffff;
     padding: 0 6px;
     z-index: 1;
 }
 
-/* Input */
+/* Input con bordes redondeados */
 .field-group input {
     width: 100%;
-    padding: 16px 24px;
+    padding: 16px 22px;
     border: 1.5px solid #b0b0b0;
     border-radius: 40px;
     font-family: 'Poppins', sans-serif;
@@ -163,12 +132,24 @@ body {
     color: #e05555;
     font-size: 11px;
     margin-top: 6px;
-    padding-left: 20px;
+    padding-left: 18px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Error general */
+.alert-error {
+    background-color: #fde8e8;
+    border: 1px solid #e05555;
+    border-radius: 12px;
+    color: #c0392b;
+    padding: 10px 18px;
+    margin-bottom: 24px;
+    font-size: 13px;
     font-family: 'Poppins', sans-serif;
 }
 
 /* Botón */
-.btn-register {
+.btn-login {
     width: 100%;
     padding: 16px;
     background-color: #e88b8b;
@@ -179,32 +160,64 @@ body {
     font-size: 15px;
     font-weight: 600;
     cursor: pointer;
-    margin-top: 8px;
+    margin-top: 10px;
     transition: background-color 0.25s;
     letter-spacing: 0.3px;
 }
 
-.btn-register:hover {
+.btn-login:hover {
     background-color: #d97777;
 }
 
-/* Link a login */
-.login-link {
-    margin-top: 18px;
+/* Link a registro */
+.register-link {
+    margin-top: 20px;
     text-align: center;
     font-size: 13px;
     color: #888;
     font-family: 'Poppins', sans-serif;
 }
 
-.login-link a {
+.register-link a {
     color: #e07070;
     text-decoration: none;
     font-weight: 500;
 }
 
-.login-link a:hover {
+.register-link a:hover {
     text-decoration: underline;
+}
+
+/* ══════════════════════════════
+   LADO DERECHO — Imagen
+   ══════════════════════════════ */
+.image-section {
+    width: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Forma rosa redondeada en arco (igual a la imagen) */
+.pink-shape {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 80%;
+    height: 100%;
+    background-color: #f2d4d4;
+    border-top-left-radius: 50% 50%;
+    border-bottom-left-radius: 50% 50%;
+}
+
+/* Imagen del libro */
+.book-img {
+    position: relative;
+    width: 440px;
+    max-width: 88%;
+    z-index: 2;
+    object-fit: contain;
 }
 
 /* ── Responsive ── */
@@ -216,16 +229,16 @@ body {
         height: auto;
     }
 
-    .image-section {
-        display: none;
-    }
-
     .form-section {
         width: 100%;
         padding: 80px 30px 40px;
     }
 
+    .image-section {
+        display: none;
+    }
+
     .form-box h1 {
-        font-size: 34px;
+        font-size: 32px;
     }
 }
