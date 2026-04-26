@@ -172,10 +172,12 @@
             </div>
         </div>
 
-        <div class="books-row-placeholder mt-4 reveal-up">
-            <img src="{{ asset('images/books-row.png') }}" alt="Fila de libros" class="books-row-img">
+       <div class="books-row-placeholder mt-4 reveal-up" style="display:block; white-space:nowrap; font-size:0; line-height:0;">
+            <img src="{{ asset('img/filaLibros.png') }}" alt="Fila de libros" style="display:inline; margin:0; padding:0; border:0; vertical-align:top;">
+            <img src="{{ asset('img/filaLibros.png') }}" alt="Fila de libros" style="display:inline; margin:0; padding:0; border:0; vertical-align:top;">
+            <img src="{{ asset('img/filaLibros.png') }}" alt="Fila de libros" style="display:inline; margin:0; padding:0; border:0; vertical-align:top;">
         </div>
-    </div>
+
 </section>
 
 {{-- ============================================================
@@ -213,7 +215,6 @@
             @endforeach
         </div>
     </div>
-    <div class="wave-bottom-pink mt-5"></div>
 </section>
 
 {{-- ============================================================
