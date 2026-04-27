@@ -240,7 +240,7 @@
                         'precio' => '$14.99',
                         'autor'  => 'Patrick Rothfuss',
                         'genero' => 'Fantasía',
-                        'cover'  => 'https://covers.openlibrary.org/b/id/8739161-L.jpg',
+                        'cover'  => '',
                         'desc'   => 'La historia de Kvothe, un estudiante de magia que se convierte en leyenda. Una obra maestra de la fantasía épica.',
                     ],
                     [
@@ -248,7 +248,7 @@
                         'precio' => '$13.50',
                         'autor'  => 'Stephen King',
                         'genero' => 'Terror',
-                        'cover'  => 'https://covers.openlibrary.org/b/id/8231432-L.jpg',
+                        'cover'  => '',
                         'desc'   => 'En Derry, Maine, siete niños se enfrentan a un terror ancestral que toma la forma de sus peores miedos.',
                     ],
                     [
@@ -256,7 +256,7 @@
                         'precio' => '$8.99',
                         'autor'  => 'Jane Austen',
                         'genero' => 'Romance',
-                        'cover'  => 'https://covers.openlibrary.org/b/id/8739351-L.jpg',
+                        'cover'  => '',
                         'desc'   => 'La historia de amor entre Elizabeth Bennet y el señor Darcy, un clásico de la literatura universal.',
                     ],
                     [
@@ -264,7 +264,7 @@
                         'precio' => '$10.00',
                         'autor'  => 'Paulo Coelho',
                         'genero' => 'Autoayuda',
-                        'cover'  => 'https://covers.openlibrary.org/b/id/8231856-L.jpg',
+                        'cover'  => '',
                         'desc'   => 'Un joven pastor emprende un viaje hacia la realización de su sueño personal en esta novela filosófica.',
                     ],
                     [
@@ -272,7 +272,7 @@
                         'precio' => '$12.00',
                         'autor'  => 'Gabriel García Márquez',
                         'genero' => 'Ficción',
-                        'cover'  => 'https://covers.openlibrary.org/b/id/8701866-L.jpg',
+                        'cover'  => '',
                         'desc'   => 'La saga de la familia Buendía en el mítico Macondo, una obra cumbre del realismo mágico.',
                     ],
                     [
@@ -280,7 +280,7 @@
                         'precio' => '$15.00',
                         'autor'  => 'J.K. Rowling',
                         'genero' => 'Fantasía',
-                        'cover'  => 'https://imagessl2.casadellibro.com/a/l/s7/52/9788478884452.webp',
+                        'cover'  => '',
                         'desc'   => 'Un niño descubre que es un mago y es admitido en la escuela de magia y hechicería de Hogwarts.',
                     ],
                     [
@@ -288,7 +288,7 @@
                         'precio' => '$11.50',
                         'autor'  => 'Carlos Ruiz Zafón',
                         'genero' => 'Misterio',
-                        'cover'  => 'https://covers.openlibrary.org/b/id/8739180-L.jpg',
+                        'cover'  => '',
                         'desc'   => 'Barcelona, 1945. Un niño descubre un libro misterioso que cambiará su vida para siempre.',
                     ],
                     [
@@ -296,7 +296,7 @@
                         'precio' => '$13.00',
                         'autor'  => 'Frank Herbert',
                         'genero' => 'Ciencia Ficción',
-                        'cover'  => 'https://covers.openlibrary.org/b/id/8231594-L.jpg',
+                        'cover'  => '',
                         'desc'   => 'En el planeta desértico Arrakis, Paul Atreides descubre su destino como líder de un pueblo oprimido.',
                     ],
                 ];
