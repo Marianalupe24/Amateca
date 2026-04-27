@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amateca - Crear cuenta</title>
-
+    <title>𝐑𝐞𝐠𝐢𝐬𝐭𝐫𝐨</title>
+    <link rel="icon" href="{{ asset('img/florSinFondo.png') }}">
     <link rel="stylesheet" href="{{ asset('css/registerView.css') }}">
 </head>
 <body>

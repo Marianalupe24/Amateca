@@ -3,14 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amateca - Tu próxima aventura comienza aquí</title>
+    <title>𝐈𝐧𝐢𝐜𝐢𝐨</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+    <link rel="icon" href="{{ asset('img/florSinFondo.png') }}">
 </head>
+
 <body>
+
+    <x-loader />
 
 {{-- ============================================================
      MODAL DE LIBRO
@@ -107,11 +111,11 @@
             <div class="book-carousel" id="bookCarousel">
                 @php
                     $carouselBooks = [
-                        ['cover'=>'https://covers.openlibrary.org/b/id/10909258-L.jpg','titulo'=>'El Príncipe Cruel','autor'=>'Holly Black','genero'=>'Fantasía','precio'=>'$12.99','desc'=>'Jude fue llevada al mundo de las hadas siendo niña. Ahora desea pertenecer a ese mundo aunque tenga que ganar su lugar a base de astucia y traición.'],
-                        ['cover'=>'https://covers.openlibrary.org/b/id/12547305-L.jpg','titulo'=>'Wintersong','autor'=>'S. Jae-Jones','genero'=>'Romance','precio'=>'$10.50','desc'=>'Una joven pianista es llevada al mundo subterráneo del Rey de los Elfos, donde deberá elegir entre su pasión y su libertad.'],
-                        ['cover'=>'https://covers.openlibrary.org/b/id/10909258-L.jpg','titulo'=>'Damián','autor'=>'Alex Mírez','genero'=>'Romance','precio'=>'$9.99','desc'=>'Un secreto oscuro y perverso. Damián es un hombre de sombras y misterios, y ella está a punto de descubrirlos todos.'],
-                        ['cover'=>'https://covers.openlibrary.org/b/id/8739161-L.jpg','titulo'=>'Érase una vez un Corazón Roto','autor'=>'Stephanie Garber','genero'=>'Fantasía','precio'=>'$13.00','desc'=>'Evangeline Fox siempre creyó en los cuentos de hadas. Ahora está a punto de vivir el más oscuro de todos.'],
-                        ['cover'=>'https://covers.openlibrary.org/b/id/10521270-L.jpg','titulo'=>'Historias Oscuras','autor'=>'Navessa Allen','genero'=>'Terror','precio'=>'$11.25','desc'=>'Una colección de relatos que te mantendrán en vela. Oscuros, perturbadores y completamente adictivos.'],
+                        ['cover'=>'https://ellector.com.py/product_photos/24b89be1/610e70bba50eedfba4342a754f793710.jpg','titulo'=>'El Príncipe Cruel','autor'=>'Holly Black','genero'=>'Fantasía','precio'=>'$29.99','desc'=>'Jude fue llevada al mundo de las hadas siendo niña. Ahora desea pertenecer a ese mundo aunque tenga que ganar su lugar a base de astucia y traición.'],
+                        ['cover'=>'https://www.bookup.com.mx/cdn/shop/files/9780593972700.jpg?v=1737159599&width=713','titulo'=>'Alchemised','autor'=>'Senlinyu','genero'=>'Dark fantasy','precio'=>'$34.95','desc'=>'En este debut fascinante de dark fantasy, una mujer sin memoria lucha por sobrevivir en un mundo de necromancia y alquimia devastado por la guerra… y al hombre encargado de desenterrar los secretos más oscuros de su pasado.'],
+                        ['cover'=>'https://ellector.com.py/product_photos/24b89be1/e302a9e8bd83b0604d7b88b44bce35e0.jpg','titulo'=>'Damián','autor'=>'Alex Mírez','genero'=>'Romance','precio'=>'$30.99','desc'=>'Un secreto oscuro y perverso. Damián es un hombre de sombras y misterios, y ella está a punto de descubrirlos todos.'],
+                        ['cover'=>'https://www.edicionesurano.com/media/cache/58/19/5819130b88bfe9dd73fc80b9cedc2881.jpg','titulo'=>'Érase una vez un Corazón Roto','autor'=>'Stephanie Garber','genero'=>'Fantasía','precio'=>'$19.00','desc'=>'Evangeline Fox siempre creyó en los cuentos de hadas. Ahora está a punto de vivir el más oscuro de todos.'],
+                        ['cover'=>'https://imagessl2.casadellibro.com/a/l/s7/52/9788478884452.webp','titulo'=>'Harry Potter','autor'=>'JK Rowling','genero'=>'Fantasía','precio'=>'$25.00','desc'=>'Harry Potter y la piedra filosofal es el primer volumen de la ya clásica serie de novelas fantásticas de la autora británica J.K. Rowling.'],
                     ];
                 @endphp
 
@@ -172,10 +176,8 @@
             </div>
         </div>
 
-       <div class="books-row-placeholder mt-4 reveal-up" style="display:block; white-space:nowrap; font-size:0; line-height:0;">
-            <img src="{{ asset('img/filaLibros.png') }}" alt="Fila de libros" style="display:inline; margin:0; padding:0; border:0; vertical-align:top;">
-            <img src="{{ asset('img/filaLibros.png') }}" alt="Fila de libros" style="display:inline; margin:0; padding:0; border:0; vertical-align:top;">
-            <img src="{{ asset('img/filaLibros.png') }}" alt="Fila de libros" style="display:inline; margin:0; padding:0; border:0; vertical-align:top;">
+        <div class="books-row-placeholder mt-4 reveal-up">
+            <img src="{{ asset('img/fila.png') }}" alt="Fila de libros" class="books-row-img">
         </div>
 
 </section>
@@ -190,26 +192,27 @@
         <div class="row g-3 g-md-4 justify-content-center">
             @php
                 $categorias = [
-                    ['nombre'=>'Terror','img'=>'cat-terror.jpg'],
-                    ['nombre'=>'Romance','img'=>'cat-romance.jpg'],
-                    ['nombre'=>'Fantasía','img'=>'cat-fantasia.jpg'],
-                    ['nombre'=>'Espiritual','img'=>'cat-espiritual.jpg'],
-                    ['nombre'=>'Política','img'=>'cat-politica.jpg'],
-                    ['nombre'=>'Autoayuda','img'=>'cat-autoayuda.jpg'],
-                    ['nombre'=>'Infantil','img'=>'cat-infantil.jpg'],
-                    ['nombre'=>'Adulto-Joven','img'=>'cat-adultojoven.jpg'],
+                    ['nombre' => 'Terror',      'img' => 'https://i.pinimg.com/736x/cc/58/c4/cc58c473a9109bc1131739edcb0fa689.jpg'],
+                    ['nombre' => 'Romance',     'img' => 'https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=600&q=80'],
+                    ['nombre' => 'Fantasía',    'img' => 'https://i.pinimg.com/736x/7d/a9/c7/7da9c76483e5f32f1e898c1a665d23b1.jpg'],
+                    ['nombre' => 'Espiritual',  'img' => 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&q=80'],
+                    ['nombre' => 'Historia',    'img' => 'https://i.pinimg.com/736x/14/75/5f/14755f89e249821c2aa7714c702fb496.jpg'],
+                    ['nombre' => 'Autoayuda',   'img' => 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=600&q=80'],
+                    ['nombre' => 'Infantil',    'img' => 'https://i.pinimg.com/originals/f1/cc/d8/f1ccd8cf384333e96376bc6760ebb163.png'],
+                    ['nombre' => 'Adulto-Joven','img' => 'https://i.pinimg.com/1200x/10/aa/e6/10aae6551fff01cf8d9e3449b4608dd4.jpg'],
                 ];
             @endphp
 
             @foreach($categorias as $index => $cat)
             <div class="col-6 col-sm-4 col-md-3 reveal-up" style="--reveal-delay: {{ $index * 0.08 }}s">
-                <a href="#" class="category-card">
-                    <div class="cat-img-placeholder">
-                        <img src="{{ asset('images/categorias/' . $cat['img']) }}"
-                             alt="{{ $cat['nombre'] }}" class="cat-img"
-                             onerror="this.style.display='none'">
-                    </div>
+                <a href="{{ route('login') }}" class="category-card">
+                    <img src="{{ $cat['img'] }}" alt="{{ $cat['nombre'] }}" class="cat-bg-img">
+                    <div class="cat-overlay"></div>
                     <span class="cat-name">{{ $cat['nombre'] }}</span>
+                    <div class="cat-hover-content">
+                        <i class="bi bi-book-half"></i>
+                        <span>Ver libros</span>
+                    </div>
                 </a>
             </div>
             @endforeach
@@ -232,14 +235,70 @@
         <div class="row g-2 g-md-3">
             @php
                 $populares = [
-                    ['titulo'=>'El Nombre del Viento','precio'=>'$14.99','autor'=>'Patrick Rothfuss','genero'=>'Fantasía','cover'=>'','desc'=>'La historia de Kvothe, un estudiante de magia que se convierte en leyenda. Una obra maestra de la fantasía épica.'],
-                    ['titulo'=>'It','precio'=>'$13.50','autor'=>'Stephen King','genero'=>'Terror','cover'=>'','desc'=>'En Derry, Maine, siete niños se enfrentan a un terror ancestral que toma la forma de sus peores miedos.'],
-                    ['titulo'=>'Orgullo y Prejuicio','precio'=>'$8.99','autor'=>'Jane Austen','genero'=>'Romance','cover'=>'','desc'=>'La historia de amor entre Elizabeth Bennet y el señor Darcy, un clásico de la literatura universal.'],
-                    ['titulo'=>'El Alquimista','precio'=>'$10.00','autor'=>'Paulo Coelho','genero'=>'Autoayuda','cover'=>'','desc'=>'Un joven pastor emprende un viaje hacia la realización de su sueño personal en esta novela filosófica.'],
-                    ['titulo'=>'Cien Años de Soledad','precio'=>'$12.00','autor'=>'Gabriel García Márquez','genero'=>'Ficción','cover'=>'','desc'=>'La saga de la familia Buendía en el mítico Macondo, una obra cumbre del realismo mágico.'],
-                    ['titulo'=>'Harry Potter','precio'=>'$15.00','autor'=>'J.K. Rowling','genero'=>'Fantasía','cover'=>'','desc'=>'Un niño descubre que es un mago y es admitido en la escuela de magia y hechicería de Hogwarts.'],
-                    ['titulo'=>'La Sombra del Viento','precio'=>'$11.50','autor'=>'Carlos Ruiz Zafón','genero'=>'Misterio','cover'=>'','desc'=>'Barcelona, 1945. Un niño descubre un libro misterioso que cambiará su vida para siempre.'],
-                    ['titulo'=>'Dune','precio'=>'$13.00','autor'=>'Frank Herbert','genero'=>'Ciencia Ficción','cover'=>'','desc'=>'En el planeta desértico Arrakis, Paul Atreides descubre su destino como líder de un pueblo oprimido.'],
+                    [
+                        'titulo' => 'El Nombre del Viento',
+                        'precio' => '$14.99',
+                        'autor'  => 'Patrick Rothfuss',
+                        'genero' => 'Fantasía',
+                        'cover'  => 'https://covers.openlibrary.org/b/id/8739161-L.jpg',
+                        'desc'   => 'La historia de Kvothe, un estudiante de magia que se convierte en leyenda. Una obra maestra de la fantasía épica.',
+                    ],
+                    [
+                        'titulo' => 'It',
+                        'precio' => '$13.50',
+                        'autor'  => 'Stephen King',
+                        'genero' => 'Terror',
+                        'cover'  => 'https://covers.openlibrary.org/b/id/8231432-L.jpg',
+                        'desc'   => 'En Derry, Maine, siete niños se enfrentan a un terror ancestral que toma la forma de sus peores miedos.',
+                    ],
+                    [
+                        'titulo' => 'Orgullo y Prejuicio',
+                        'precio' => '$8.99',
+                        'autor'  => 'Jane Austen',
+                        'genero' => 'Romance',
+                        'cover'  => 'https://covers.openlibrary.org/b/id/8739351-L.jpg',
+                        'desc'   => 'La historia de amor entre Elizabeth Bennet y el señor Darcy, un clásico de la literatura universal.',
+                    ],
+                    [
+                        'titulo' => 'El Alquimista',
+                        'precio' => '$10.00',
+                        'autor'  => 'Paulo Coelho',
+                        'genero' => 'Autoayuda',
+                        'cover'  => 'https://covers.openlibrary.org/b/id/8231856-L.jpg',
+                        'desc'   => 'Un joven pastor emprende un viaje hacia la realización de su sueño personal en esta novela filosófica.',
+                    ],
+                    [
+                        'titulo' => 'Cien Años de Soledad',
+                        'precio' => '$12.00',
+                        'autor'  => 'Gabriel García Márquez',
+                        'genero' => 'Ficción',
+                        'cover'  => 'https://covers.openlibrary.org/b/id/8701866-L.jpg',
+                        'desc'   => 'La saga de la familia Buendía en el mítico Macondo, una obra cumbre del realismo mágico.',
+                    ],
+                    [
+                        'titulo' => 'Harry Potter',
+                        'precio' => '$15.00',
+                        'autor'  => 'J.K. Rowling',
+                        'genero' => 'Fantasía',
+                        'cover'  => 'https://imagessl2.casadellibro.com/a/l/s7/52/9788478884452.webp',
+                        'desc'   => 'Un niño descubre que es un mago y es admitido en la escuela de magia y hechicería de Hogwarts.',
+                    ],
+                    [
+                        'titulo' => 'La Sombra del Viento',
+                        'precio' => '$11.50',
+                        'autor'  => 'Carlos Ruiz Zafón',
+                        'genero' => 'Misterio',
+                        'cover'  => 'https://covers.openlibrary.org/b/id/8739180-L.jpg',
+                        'desc'   => 'Barcelona, 1945. Un niño descubre un libro misterioso que cambiará su vida para siempre.',
+                    ],
+                    [
+                        'titulo' => 'Dune',
+                        'precio' => '$13.00',
+                        'autor'  => 'Frank Herbert',
+                        'genero' => 'Ciencia Ficción',
+                        'cover'  => 'https://covers.openlibrary.org/b/id/8231594-L.jpg',
+                        'desc'   => 'En el planeta desértico Arrakis, Paul Atreides descubre su destino como líder de un pueblo oprimido.',
+                    ],
                 ];
             @endphp
 
@@ -253,7 +312,8 @@
                      data-precio="{{ $libro['precio'] }}"
                      data-desc="{{ $libro['desc'] }}">
                     <div class="book-card-img-placeholder">
-                        <img src="{{ asset('images/libros/' . Str::slug($libro['titulo']) . '.jpg') }}"
+                        {{-- ← CAMBIO: usa $libro['cover'] directamente --}}
+                        <img src="{{ $libro['cover'] }}"
                              alt="{{ $libro['titulo'] }}" class="book-card-img"
                              onerror="this.style.display='none'">
                         <div class="img-placeholder-icon"><i class="bi bi-image"></i></div>
@@ -310,9 +370,7 @@
             </div>
 
             <div class="col-12 col-md-5 d-flex align-items-center justify-content-center reveal-right">
-                <div class="about-img-placeholder">
-                    <img src="{{ asset('images/stack-books.png') }}" alt="Pila de libros" class="about-img" onerror="this.style.display='none'">
-                </div>
+                <img src="{{ asset('img/fila.png') }}" alt="Fila de libros" class="about-img">
             </div>
         </div>
     </div>
@@ -491,5 +549,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 </script>
+
+<x-footer />
 </body>
 </html>

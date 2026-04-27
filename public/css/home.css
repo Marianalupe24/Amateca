@@ -71,7 +71,6 @@ p,a,span,li,label,input,button,small { font-family: var(--font-poppins); }
     transform:translateY(-2px);
     box-shadow:0 8px 22px rgba(253,158,158,0.45);
 }
-/* Tamaño reducido en móvil */
 .btn-sm-hero { font-size:0.78rem; padding:8px 14px; border-radius:10px; }
 
 /* Ripple */
@@ -107,11 +106,9 @@ p,a,span,li,label,input,button,small { font-family: var(--font-poppins); }
 
 .hero-image-col { position:relative; }
 
-/* ── GRUPO FLOTANTE (oval + imagen juntos) ── */
 .hero-float-group {
     position:relative;
     display:flex; align-items:center; justify-content:center;
-    /* Toda la unidad flota suavemente */
     animation: heroFloat 4.5s ease-in-out infinite;
 }
 
@@ -129,7 +126,6 @@ p,a,span,li,label,input,button,small { font-family: var(--font-poppins); }
     background-color:var(--rosa-medio);
     border-radius:50%;
     z-index:0;
-    /* Brillo pulsante suave */
     animation: ovalPulse 4.5s ease-in-out infinite;
 }
 
@@ -151,7 +147,6 @@ p,a,span,li,label,input,button,small { font-family: var(--font-poppins); }
     filter:drop-shadow(0 24px 44px rgba(0,0,0,0.13));
 }
 
-/* Flecha scroll */
 .scroll-hint {
     position:absolute; bottom:56px; left:50%; transform:translateX(-50%);
     font-size:1.6rem; color:var(--rosa-boton);
@@ -177,7 +172,6 @@ p,a,span,li,label,input,button,small { font-family: var(--font-poppins); }
     background-color:var(--blanco);
 }
 
-/* Ola superior del carrusel — apunta hacia ABAJO */
 .wave-top-down {
     width:100%; height:44px;
     background-color:var(--blanco);
@@ -214,10 +208,8 @@ p,a,span,li,label,input,button,small { font-family: var(--font-poppins); }
 .section-title { font-family:var(--font-italiana); font-size:clamp(1.5rem, 3.5vw, 2.6rem); }
 .subtitle-text { font-size:clamp(0.88rem, 2.5vw, 1rem); }
 
-/* ── Wrapper 3D ── */
 .book-carousel-wrapper {
     display:flex; align-items:center; justify-content:center;
-    /* Altura responsiva */
     height: clamp(220px, 40vw, 400px);
     perspective:1400px;
 }
@@ -227,7 +219,6 @@ p,a,span,li,label,input,button,small { font-family: var(--font-poppins); }
     display:flex; align-items:center; justify-content:center;
 }
 
-/* Tamaño base del libro — se sobreescribe en cada breakpoint */
 .book-item {
     position:absolute;
     width:  clamp(110px, 18vw, 200px);
@@ -239,7 +230,6 @@ p,a,span,li,label,input,button,small { font-family: var(--font-poppins); }
 }
 .book-cover { width:100%; height:100%; object-fit:cover; display:block; }
 
-/* Hint ojo */
 .book-item-click-hint {
     position:absolute; inset:0;
     display:flex; align-items:center; justify-content:center;
@@ -249,7 +239,6 @@ p,a,span,li,label,input,button,small { font-family: var(--font-poppins); }
 }
 .book-item:hover .book-item-click-hint { background:rgba(0,0,0,0.28); color:#fff; }
 
-/* ── Posiciones carrusel usando clamp para desplazamiento relativo ── */
 .book-item.active {
     transform:translateX(0) scale(1.12) rotateY(0deg);
     z-index:5; opacity:1; filter:none;
@@ -275,7 +264,6 @@ p,a,span,li,label,input,button,small { font-family: var(--font-poppins); }
     opacity:0; pointer-events:none; z-index:0;
 }
 
-/* Flechas */
 .carousel-arrow {
     position:absolute; top:50%; transform:translateY(-50%); z-index:10;
     width:clamp(34px,6vw,44px); height:clamp(34px,6vw,44px);
@@ -293,19 +281,13 @@ p,a,span,li,label,input,button,small { font-family: var(--font-poppins); }
 .arrow-left  { left:4px; }
 .arrow-right { right:4px; }
 
-/* Dots */
-.carousel-dots {
-    display:flex; justify-content:center; gap:8px;
-}
+.carousel-dots { display:flex; justify-content:center; gap:8px; }
 .carousel-dot {
     width:8px; height:8px; border-radius:50%;
     background:rgba(125,99,99,0.25);
     cursor:pointer; transition:background 0.3s, transform 0.3s;
 }
-.carousel-dot.active {
-    background:var(--rosa-boton);
-    transform:scale(1.3);
-}
+.carousel-dot.active { background:var(--rosa-boton); transform:scale(1.3); }
 
 /* ============================================================
    MODAL
@@ -398,7 +380,7 @@ p,a,span,li,label,input,button,small { font-family: var(--font-poppins); }
     0%,100% { box-shadow:0 0 0 0 rgba(204,31,31,0.35); }
     50%      { box-shadow:0 0 0 12px rgba(204,31,31,0); }
 }
-.discount-number { font-size:clamp(1.8rem,4vw,2.8rem); line-height:1; }
+.discount-number  { font-size:clamp(1.8rem,4vw,2.8rem); line-height:1; }
 .discount-percent { font-size:clamp(1rem,1.8vw,1.3rem); align-self:flex-start; margin-top:6px; }
 
 .books-row-placeholder { width:100%; min-height:clamp(100px,20vw,180px); overflow:hidden; }
@@ -407,25 +389,78 @@ p,a,span,li,label,input,button,small { font-family: var(--font-poppins); }
 /* ============================================================
    CATEGORÍAS
 ============================================================ */
-.categories-section { background:var(--blanco); padding-top:60px; }
+.categories-section { background: var(--blanco); padding-top: 60px; }
 
 .category-card {
-    display:block; text-decoration:none;
-    border-radius:8px; overflow:hidden;
-    position:relative; aspect-ratio:3/4;
-    background-color:var(--marron-cat);
-    transition:transform 0.35s ease, box-shadow 0.35s ease;
+    display: block;
+    text-decoration: none;
+    border-radius: 14px;
+    overflow: hidden;
+    position: relative;
+    aspect-ratio: 3 / 4;
+    background-color: var(--marron-cat);
+    transition: transform 0.38s var(--ease-out), box-shadow 0.38s var(--ease-out);
+    cursor: pointer;
 }
-.category-card:hover { box-shadow:0 16px 36px rgba(0,0,0,0.22); }
-.cat-img-placeholder { position:absolute; inset:0; overflow:hidden; }
-.cat-img  { width:100%; height:100%; object-fit:cover; opacity:0.55; display:block; }
+.category-card:hover {
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 20px 46px rgba(0, 0, 0, 0.28);
+}
+
+.cat-bg-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.55s var(--ease-out);
+}
+.category-card:hover .cat-bg-img { transform: scale(1.10); }
+
+.cat-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(30, 10, 10, 0.42);
+    transition: background 0.35s ease;
+    z-index: 1;
+}
+.category-card:hover .cat-overlay { background: rgba(30, 10, 10, 0.62); }
+
 .cat-name {
-    position:absolute; bottom:0; left:0; right:0;
-    text-align:center; color:var(--blanco);
-    font-size:clamp(0.8rem,2vw,0.95rem); font-weight:500;
-    padding:30px 8px 14px;
-    background:linear-gradient(to top, rgba(80,50,50,0.85) 0%, transparent 100%);
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #ffffff;
+    font-family: var(--font-italiana);
+    font-size: clamp(1.1rem, 2.6vw, 1.45rem);
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    z-index: 2;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    padding: 12px;
 }
+.category-card:hover .cat-name { opacity: 0; transform: translateY(-8px); }
+
+.cat-hover-content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: #ffffff;
+    z-index: 3;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.32s ease, transform 0.32s ease;
+}
+.category-card:hover .cat-hover-content { opacity: 1; transform: translateY(0); }
+.cat-hover-content i    { font-size: clamp(1.6rem, 4vw, 2.4rem); }
+.cat-hover-content span { font-family: var(--font-poppins); font-size: clamp(0.8rem, 2vw, 0.95rem); font-weight: 500; letter-spacing: 0.4px; }
 
 /* ============================================================
    MÁS POPULARES
@@ -446,7 +481,10 @@ p,a,span,li,label,input,button,small { font-family: var(--font-poppins); }
     position:relative; overflow:hidden;
     display:flex; align-items:center; justify-content:center;
 }
-.book-card-img { width:100%; height:100%; object-fit:cover; display:block; position:absolute; inset:0; }
+.book-card-img {
+    width:100%; height:100%; object-fit:cover;
+    display:block; position:absolute; inset:0;
+}
 .img-placeholder-icon { font-size:clamp(1.4rem,4vw,2.2rem); color:#ABABAB; z-index:1; }
 
 .book-card-hover-overlay {
@@ -496,31 +534,24 @@ p,a,span,li,label,input,button,small { font-family: var(--font-poppins); }
     .hero-section { min-height:auto; padding-bottom:40px; }
     .min-vh-80    { min-height:auto; }
 
-    .hero-text {
-        text-align:center;
-        padding:40px 20px 16px;
-        order:2;
-    }
+    .hero-text { text-align:center; padding:40px 20px 16px; order:2; }
     .hero-image-col { order:1; padding:30px 0 0; }
 
     .hero-float-group { transform-origin:center; }
     .hero-oval-bg     { width:200px; height:200px; }
     .hero-img-placeholder { width:220px; height:240px; }
 
-    /* Carrusel: solo 3 visibles, no far */
     .book-item.far-left,
     .book-item.far-right { opacity:0; pointer-events:none; }
 
     .book-carousel-wrapper { height:200px; }
 
-    /* Modal vertical */
     .book-modal { padding:20px 16px; }
     .book-modal-inner { flex-direction:column; align-items:center; text-align:center; }
     .book-modal-img-wrap { width:120px; height:175px; }
     .modal-book-actions  { justify-content:center; }
 
     .promo-oval-bg { width:60px; height:60px; min-width:60px; }
-
     .scroll-hint { bottom:20px; }
 }
 

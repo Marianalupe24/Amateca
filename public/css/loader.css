@@ -1,165 +1,176 @@
+/* ============================================================
+   loader.css — Amateca Librería
+   Loader animado con libro y letras rebotando
+============================================================ */
 
-    body {
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-    }
-    
-    /* ── El overlay cubre toda la pantalla desde el primer píxel ── */
-    #loader-overlay {
-        position: fixed;
-        inset: 0;
-        z-index: 9999;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: #fff0f4;
-        opacity: 1;
-        visibility: visible;
-    }
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
 
-    /* ── Contenedor ── */
-    .loader-container {
-        text-align: center;
-        font-family: 'Poppins', sans-serif;
-    }
+/* ── Overlay ── */
+#loader-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff0f4;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+}
 
-    /* ── Libro ── */
-    .book {
-        position: relative;
-        width: 160px;
-        height: 100px;
-        perspective: 1000px;
-        margin: 0 auto 30px;
-        animation: floatBook 1.4s infinite ease-in-out;
-    }
+/* Clase añadida por JS para ocultar */
+#loader-overlay.loader-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
 
-    @keyframes floatBook {
-        0%, 100% { transform: translateY(0px); }
-        50%       { transform: translateY(-6px); }
-    }
+/* ── Contenedor ── */
+.loader-container {
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
 
-    .cover {
-        position: absolute;
-        width: 80px;
-        height: 100px;
-        border: 1.5px solid #986946;
-        background: white;
-        top: 0;
-        z-index: 2;
-    }
+/* ── Libro flotante ── */
+.book {
+    position: relative;
+    width: 160px;
+    height: 100px;
+    perspective: 1000px;
+    margin: 0 auto 30px;
+    animation: floatBook 1.4s infinite ease-in-out;
+}
 
-    .cover::after {
-        content: "";
-        position: absolute;
-        top: 10px; left: 10px; right: 10px; bottom: 10px;
-        background: repeating-linear-gradient(
-            to bottom,
-            #d6d6d6, #d6d6d6 2px,
-            transparent 2px, transparent 8px
-        );
-        opacity: 0.6;
-    }
+@keyframes floatBook {
+    0%, 100% { transform: translateY(0px); }
+    50%       { transform: translateY(-6px); }
+}
 
-    .cover.left  { left: 0;  border-right: none; }
-    .cover.right { right: 0; border-left: none;  }
+/* Tapas */
+.cover {
+    position: absolute;
+    width: 80px;
+    height: 100px;
+    border: 1.5px solid #986946;
+    background: white;
+    top: 0;
+    z-index: 2;
+}
 
-    .spine {
-        position: absolute;
-        left: 50%;
-        top: 0;
-        width: 1.5px;
-        height: 100%;
-        background: #986946;
-        transform: translateX(-50%);
-        z-index: 20;
-        pointer-events: none;
-    }
+.cover::after {
+    content: "";
+    position: absolute;
+    top: 10px; left: 10px; right: 10px; bottom: 10px;
+    background: repeating-linear-gradient(
+        to bottom,
+        #d6d6d6, #d6d6d6 2px,
+        transparent 2px, transparent 8px
+    );
+    opacity: 0.6;
+}
 
-    .page {
-        position: absolute;
-        left: 50%;
-        top: 0;
-        width: 80px;
-        height: 100px;
-        border: 1.5px solid #986946;
-        border-left: none;
-        background: white;
-        transform-origin: left;
-        transform-style: preserve-3d;
-        z-index: 1;
-    }
+.cover.left  { left: 0;  border-right: none; }
+.cover.right { right: 0; border-left: none;  }
 
-    .page::after {
-        content: "";
-        position: absolute;
-        top: 10px; left: 10px; right: 10px; bottom: 10px;
-        background: repeating-linear-gradient(
-            to bottom,
-            #d6d6d6, #d6d6d6 2px,
-            transparent 2px, transparent 8px
-        );
-        opacity: 0.6;
-    }
+/* Lomo */
+.spine {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 1.5px;
+    height: 100%;
+    background: #986946;
+    transform: translateX(-50%);
+    z-index: 20;
+    pointer-events: none;
+}
 
-    @keyframes flipComplete {
-        0%   { transform: rotateY(0deg);    opacity: 1; z-index: 10; }
-        45%  { transform: rotateY(-180deg); opacity: 1; z-index: 10; }
-        50%  { transform: rotateY(-180deg); opacity: 0; z-index: 10; }
-        51%  { transform: rotateY(0deg);    opacity: 0; z-index: 1;  }
-        100% { transform: rotateY(0deg);    opacity: 0; z-index: 1;  }
-    }
+/* Páginas giratorias */
+.page {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 80px;
+    height: 100px;
+    border: 1.5px solid #986946;
+    border-left: none;
+    background: white;
+    transform-origin: left;
+    transform-style: preserve-3d;
+    z-index: 1;
+}
 
-    .p1 { animation: flipComplete 3.6s infinite linear; }
-    .p2 { animation: flipComplete 3.6s infinite linear; animation-delay: 1.2s; }
-    .p3 { animation: flipComplete 3.6s infinite linear; animation-delay: 2.4s; }
+.page::after {
+    content: "";
+    position: absolute;
+    top: 10px; left: 10px; right: 10px; bottom: 10px;
+    background: repeating-linear-gradient(
+        to bottom,
+        #d6d6d6, #d6d6d6 2px,
+        transparent 2px, transparent 8px
+    );
+    opacity: 0.6;
+}
 
-    /* ── Texto Cargando ── */
-    .loading-text {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 14px;
-        font-size: 22px;
-        font-weight: 500;
-        color: #555;
-    }
+@keyframes flipComplete {
+    0%   { transform: rotateY(0deg);    opacity: 1; z-index: 10; }
+    45%  { transform: rotateY(-180deg); opacity: 1; z-index: 10; }
+    50%  { transform: rotateY(-180deg); opacity: 0; z-index: 10; }
+    51%  { transform: rotateY(0deg);    opacity: 0; z-index: 1;  }
+    100% { transform: rotateY(0deg);    opacity: 0; z-index: 1;  }
+}
 
-    /* Control estricto del tamaño de la imagen */
-    .loader-icon {
-        width: 34px !important;
-        height: 34px !important;
-        max-width: 34px !important;
-        max-height: 34px !important;
-        object-fit: contain;
-        display: inline-block;
-    }
+.p1 { animation: flipComplete 3.6s infinite linear; }
+.p2 { animation: flipComplete 3.6s infinite linear; animation-delay: 1.2s; }
+.p3 { animation: flipComplete 3.6s infinite linear; animation-delay: 2.4s; }
 
-    @keyframes bounceIcon {
-        0%, 100% { transform: translateY(0); }
-        50%       { transform: translateY(-6px); }
-    }
+/* ── Texto "Cargando..." ── */
+.loading-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    font-size: 22px;
+    font-weight: 500;
+    color: #555;
+}
 
-    .letters span {
-        display: inline-block;
-        animation: bounceLetters 1.4s infinite;
-    }
+/* Icono flor */
+.loader-icon {
+    width:      34px !important;
+    height:     34px !important;
+    max-width:  34px !important;
+    max-height: 34px !important;
+    object-fit: contain;
+    display: inline-block;
+    animation: bounceIcon 1.4s infinite ease-in-out;
+}
 
-    .letters span:nth-child(1)  { animation-delay: 0s;   }
-    .letters span:nth-child(2)  { animation-delay: 0.1s; }
-    .letters span:nth-child(3)  { animation-delay: 0.2s; }
-    .letters span:nth-child(4)  { animation-delay: 0.3s; }
-    .letters span:nth-child(5)  { animation-delay: 0.4s; }
-    .letters span:nth-child(6)  { animation-delay: 0.5s; }
-    .letters span:nth-child(7)  { animation-delay: 0.6s; }
-    .letters span:nth-child(8)  { animation-delay: 0.7s; }
-    .letters span:nth-child(9)  { animation-delay: 0.8s; }
-    .letters span:nth-child(10) { animation-delay: 0.9s; }
-    .letters span:nth-child(11) { animation-delay: 1.0s; }
+@keyframes bounceIcon {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-6px); }
+}
 
-    @keyframes bounceLetters {
-        0%, 100% { transform: translateY(0); }
-        50%       { transform: translateY(-6px); }
-    }
+/* Letras rebotando */
+.letters span {
+    display: inline-block;
+    animation: bounceLetters 1.4s infinite ease-in-out;
+}
 
+.letters span:nth-child(1)  { animation-delay: 0s;   }
+.letters span:nth-child(2)  { animation-delay: 0.1s; }
+.letters span:nth-child(3)  { animation-delay: 0.2s; }
+.letters span:nth-child(4)  { animation-delay: 0.3s; }
+.letters span:nth-child(5)  { animation-delay: 0.4s; }
+.letters span:nth-child(6)  { animation-delay: 0.5s; }
+.letters span:nth-child(7)  { animation-delay: 0.6s; }
+.letters span:nth-child(8)  { animation-delay: 0.7s; }
+.letters span:nth-child(9)  { animation-delay: 0.8s; }
+.letters span:nth-child(10) { animation-delay: 0.9s; }
+.letters span:nth-child(11) { animation-delay: 1.0s; }
 
+@keyframes bounceLetters {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-6px); }
+}

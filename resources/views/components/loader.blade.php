@@ -55,6 +55,8 @@
 
 {{-- CSS completo con animaciones --}}
 <link rel="stylesheet" href="{{ asset('css/loader.css') }}">
+<link rel="icon" href="{{ asset('img/florSinFondo.png') }}">
+
 
 <script>
     // Espera a que la página cargue completamente y luego oculta el loader
