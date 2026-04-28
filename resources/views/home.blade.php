@@ -52,7 +52,6 @@
         <div class="logo-placeholder">
             <img src="{{ asset('img/logoSinFondo.png') }}" alt="Logo Amateca" class="logo-img">
         </div>
-        <span class="brand-name">AMATECA</span>
     </a>
     <div class="ms-auto d-flex gap-2 gap-md-3">
         <a href="{{ route('register') }}" class="btn btn-hero btn-sm-hero">Crear cuenta</a>
@@ -280,7 +279,7 @@
                         'precio' => '$15.00',
                         'autor'  => 'J.K. Rowling',
                         'genero' => 'Fantasía',
-                        'cover'  => '',
+                        'cover'  => 'https://imagessl2.casadellibro.com/a/l/s7/52/9788478884452.webp',
                         'desc'   => 'Un niño descubre que es un mago y es admitido en la escuela de magia y hechicería de Hogwarts.',
                     ],
                     [
@@ -316,7 +315,6 @@
                         <img src="{{ $libro['cover'] }}"
                              alt="{{ $libro['titulo'] }}" class="book-card-img"
                              onerror="this.style.display='none'">
-                        <div class="img-placeholder-icon"><i class="bi bi-image"></i></div>
                         <div class="book-card-hover-overlay">
                             <i class="bi bi-eye-fill"></i>
                             <span>Ver detalle</span>
