@@ -1,9 +1,8 @@
 
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Italiana&display=swap');
 
-/* ── Reset ── */
+
 * {
     margin: 0;
     padding: 0;
@@ -37,10 +36,12 @@ body {
     gap: 4px;
 }
 
+
 .logo img {
-    width: 54px;   /* ← ajusta según el tamaño de tu logo */
+    width: 54px;   
     height: auto;
 }
+
 
 .logo span {
     font-family: 'Poppins', sans-serif;
@@ -238,7 +239,9 @@ body {
         display: none;
     }
 
+
     .form-box h1 {
         font-size: 32px;
     }
 }
+

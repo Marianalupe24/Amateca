@@ -1,4 +1,8 @@
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> vanessa
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -8,6 +12,7 @@
     <link rel="stylesheet" href="{{ asset('css/login.css') }}">
     <link rel="icon" href="{{ asset('img/florSinFondo.png') }}">
 
+<<<<<<< HEAD
 </head>
 <body>
 
@@ -15,16 +20,40 @@
 
     <div class="main-container">
 
+=======
+
+</head>
+<body>
+
+
+    <x-loader />
+
+
+    <div class="main-container">
+
+
+>>>>>>> vanessa
         <div class="logo">
             <img src="{{ asset('img/logoSinFondo.png') }}" alt="Logo Amateca">
         </div>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> vanessa
         {{-- ══ LADO IZQUIERDO: Formulario ══ --}}
         <div class="form-section">
             <div class="form-box">
 
+<<<<<<< HEAD
                 <h1>Bienvenido de nuevo</h1>
 
+=======
+
+                <h1>Bienvenido de nuevo</h1>
+
+
+>>>>>>> vanessa
                 {{-- Error de credenciales incorrectas --}}
                 @if ($errors->any())
                     <div class="alert-error">
@@ -32,9 +61,17 @@
                     </div>
                 @endif
 
+<<<<<<< HEAD
                 <form action="{{ route('login') }}" method="POST">
                     @csrf
 
+=======
+
+                <form action="{{ route('login') }}" method="POST">
+                    @csrf
+
+
+>>>>>>> vanessa
                     {{-- Email --}}
                     <div class="field-group">
                         <label for="email">Email:</label>
@@ -52,6 +89,10 @@
                         @enderror
                     </div>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> vanessa
                     {{-- Contraseña --}}
                     <div class="field-group">
                         <label for="password">Contraseña:</label>
@@ -68,18 +109,34 @@
                         @enderror
                     </div>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> vanessa
                     <button type="submit" class="btn-login">
                         Iniciar sesión
                     </button>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> vanessa
                     <p class="register-link">
                         ¿No tienes cuenta? <a href="{{ route('register') }}">Crear cuenta</a>
                     </p>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> vanessa
                 </form>
             </div>
         </div>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> vanessa
         {{-- ══ LADO DERECHO: Imagen ══ --}}
         <div class="image-section">
             <div class="pink-shape"></div>
@@ -87,7 +144,17 @@
             <img src="{{ asset('img/libro.png') }}" alt="Libro con flores" class="book-img">
         </div>
 
+<<<<<<< HEAD
     </div>
 
 </body>
 </html>
+=======
+
+    </div>
+
+
+</body>
+</html>
+
+>>>>>>> vanessa
