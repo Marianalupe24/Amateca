@@ -20,8 +20,11 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'apellido',
         'email',
+        'telefono',
         'password',
+        'rol',
     ];
 
     /**
@@ -46,4 +49,43 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+<<<<<<< Updated upstream
 }
+=======
+
+    public function isAdmin(): bool
+    {
+        return $this->rol === 'admin';
+    }
+
+    public function isEmpleado(): bool
+    {
+        return $this->rol === 'empleado';
+    }
+
+    public function isStaff(): bool
+    {
+        return in_array($this->rol, ['admin', 'empleado']);
+    }
+
+    public function cart()
+    {
+        return $this->hasOne(\App\Models\Cart::class, 'id_usuario');
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(\App\Models\Comment::class, 'id_usuario');
+    }
+
+    public function ratings()
+    {
+        return $this->hasMany(\App\Models\Rating::class, 'id_usuario');
+    }
+
+    public function facturas()
+    {
+        return $this->hasMany(\App\Models\Factura::class, 'id_usuario');
+    }
+}
+>>>>>>> Stashed changes
