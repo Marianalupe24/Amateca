@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>𝐈𝐧𝐢𝐜𝐢𝐨</title>
 
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
@@ -12,9 +13,12 @@
     <link rel="icon" href="{{ asset('img/florSinFondo.png') }}">
 </head>
 
+
 <body>
 
+
     <x-loader />
+
 
 {{-- ============================================================
      MODAL DE LIBRO
@@ -44,20 +48,27 @@
     </div>
 </div>
 
+
 {{-- ============================================================
      NAVBAR
 ============================================================ --}}
 <nav class="navbar navbar-light bg-white px-4 py-3" id="mainNav">
-    <a class="navbar-brand d-flex flex-column align-items-center" href="#">
+    <a class="navbar-brand d-flex flex-column align-items-center" href="{{ route('home') }}">
         <div class="logo-placeholder">
             <img src="{{ asset('img/logoSinFondo.png') }}" alt="Logo Amateca" class="logo-img">
         </div>
     </a>
-    <div class="ms-auto d-flex gap-2 gap-md-3">
-        <a href="{{ route('register') }}" class="btn btn-hero btn-sm-hero">Crear cuenta</a>
-        <a href="{{ route('login') }}" class="btn btn-hero btn-sm-hero">Iniciar Sesión</a>
+    <div class="ms-auto d-flex gap-2 gap-md-3 align-items-center">
+        @auth
+            <a href="{{ route('buscar') }}" class="btn btn-hero btn-sm-hero">Buscar</a>
+            <a href="{{ route('dashboard') }}" class="btn btn-hero btn-sm-hero">Mi cuenta</a>
+        @else
+            <a href="{{ route('register') }}" class="btn btn-hero btn-sm-hero">Crear cuenta</a>
+            <a href="{{ route('login') }}" class="btn btn-hero btn-sm-hero">Iniciar Sesión</a>
+        @endauth
     </div>
 </nav>
+
 
 {{-- ============================================================
      HERO SECTION
@@ -65,6 +76,7 @@
 <section class="hero-section">
     <div class="container-fluid px-3 px-md-4">
         <div class="row align-items-center min-vh-80">
+
 
             <div class="col-12 col-md-6 hero-text">
                 <h1 class="hero-title reveal-left">
@@ -74,6 +86,7 @@
                 </h1>
                 <a href="#libros" class="btn btn-hero mt-4 reveal-left reveal-delay-2">Comencemos</a>
             </div>
+
 
             <div class="col-12 col-md-6 hero-image-col d-flex justify-content-center align-items-center">
                 <div class="hero-float-group reveal-scale">
@@ -86,12 +99,15 @@
         </div>
     </div>
 
+
     <div class="wave-divider wave-bottom-white"></div>
+
 
     <div class="scroll-hint" id="scrollHint">
         <i class="bi bi-chevron-down"></i>
     </div>
 </section>
+
 
 {{-- ============================================================
      SECCIÓN: CARRUSEL
@@ -99,13 +115,16 @@
 <section class="carousel-section" id="libros">
     <div class="wave-top-down"></div>
 
+
     <div class="container text-center py-4 py-md-5">
         <h2 class="section-title font-italiana mb-4 mb-md-5 reveal-up">Miles de historias te están esperando</h2>
+
 
         <div class="book-carousel-wrapper position-relative reveal-up reveal-delay-1">
             <button class="carousel-arrow arrow-left" id="prevBtn" aria-label="Anterior">
                 <i class="bi bi-chevron-left"></i>
             </button>
+
 
             <div class="book-carousel" id="bookCarousel">
                 @php
@@ -117,6 +136,7 @@
                         ['cover'=>'https://imagessl2.casadellibro.com/a/l/s7/52/9788478884452.webp','titulo'=>'Harry Potter','autor'=>'JK Rowling','genero'=>'Fantasía','precio'=>'$25.00','desc'=>'Harry Potter y la piedra filosofal es el primer volumen de la ya clásica serie de novelas fantásticas de la autora británica J.K. Rowling.'],
                     ];
                 @endphp
+
 
                 @foreach($carouselBooks as $index => $book)
                 <div class="book-item {{ $index === 2 ? 'active' : '' }}"
@@ -133,10 +153,12 @@
                 @endforeach
             </div>
 
+
             <button class="carousel-arrow arrow-right" id="nextBtn" aria-label="Siguiente">
                 <i class="bi bi-chevron-right"></i>
             </button>
         </div>
+
 
         {{-- Dots indicadores --}}
         <div class="carousel-dots mt-4" id="carouselDots">
@@ -145,9 +167,11 @@
             @endforeach
         </div>
 
+
         <p class="subtitle-text mt-3 mt-md-4 reveal-up reveal-delay-2">Encuentra exactamente lo que buscas… y más.</p>
     </div>
 </section>
+
 
 {{-- ============================================================
      SECCIÓN: PROMOCIONES
@@ -155,6 +179,7 @@
 <section class="promo-section py-5">
     <div class="container">
         <h2 class="section-title font-italiana text-center mb-4 mb-md-5 reveal-up">Promociones pensadas para ti</h2>
+
 
         <div class="row align-items-center gy-4">
             <div class="col-12 col-md-8 reveal-left">
@@ -175,11 +200,14 @@
             </div>
         </div>
 
+
         <div class="books-row-placeholder mt-4 reveal-up">
             <img src="{{ asset('img/fila.png') }}" alt="Fila de libros" class="books-row-img">
         </div>
 
+
 </section>
+
 
 {{-- ============================================================
      SECCIÓN: CATEGORÍAS
@@ -188,26 +216,29 @@
     <div class="container">
         <h2 class="section-title font-italiana text-center mb-4 mb-md-5 reveal-up">Explora nuestras categorías</h2>
 
+
         <div class="row g-3 g-md-4 justify-content-center">
             @php
-                $categorias = [
-                    ['nombre' => 'Terror',      'img' => 'https://i.pinimg.com/736x/cc/58/c4/cc58c473a9109bc1131739edcb0fa689.jpg'],
-                    ['nombre' => 'Romance',     'img' => 'https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=600&q=80'],
-                    ['nombre' => 'Fantasía',    'img' => 'https://i.pinimg.com/736x/7d/a9/c7/7da9c76483e5f32f1e898c1a665d23b1.jpg'],
-                    ['nombre' => 'Espiritual',  'img' => 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&q=80'],
-                    ['nombre' => 'Historia',    'img' => 'https://i.pinimg.com/736x/14/75/5f/14755f89e249821c2aa7714c702fb496.jpg'],
-                    ['nombre' => 'Autoayuda',   'img' => 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=600&q=80'],
-                    ['nombre' => 'Infantil',    'img' => 'https://i.pinimg.com/originals/f1/cc/d8/f1ccd8cf384333e96376bc6760ebb163.png'],
-                    ['nombre' => 'Adulto-Joven','img' => 'https://i.pinimg.com/1200x/10/aa/e6/10aae6551fff01cf8d9e3449b4608dd4.jpg'],
+                $homeCatImages = [
+                    'Terror y Suspenso'       => 'https://i.pinimg.com/736x/cc/58/c4/cc58c473a9109bc1131739edcb0fa689.jpg',
+                    'Romance'                 => 'https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=600&q=80',
+                    'Ciencia Ficción y Fantasía' => 'https://i.pinimg.com/736x/7d/a9/c7/7da9c76483e5f32f1e898c1a665d23b1.jpg',
+                    'Autoayuda'               => 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=600&q=80',
+                    'Historia'                => 'https://i.pinimg.com/736x/14/75/5f/14755f89e249821c2aa7714c702fb496.jpg',
+                    'Novela'                  => 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&q=80',
+                    'Literatura Infantil'     => 'https://i.pinimg.com/originals/f1/cc/d8/f1ccd8cf384333e96376bc6760ebb163.png',
+                    'Literatura Juvenil'      => 'https://i.pinimg.com/1200x/10/aa/e6/10aae6551fff01cf8d9e3449b4608dd4.jpg',
                 ];
             @endphp
 
-            @foreach($categorias as $index => $cat)
+
+            @foreach($categorias->take(8) as $index => $cat)
             <div class="col-6 col-sm-4 col-md-3 reveal-up" style="--reveal-delay: {{ $index * 0.08 }}s">
-                <a href="{{ route('login') }}" class="category-card">
-                    <img src="{{ $cat['img'] }}" alt="{{ $cat['nombre'] }}" class="cat-bg-img">
+                <a href="{{ route('buscar') }}?categoria={{ $cat->id }}" class="category-card">
+                    <img src="{{ $homeCatImages[$cat->nombre] ?? 'https://images.unsplash.com/photo-1512820790803-83ca734da794?w=600&q=80' }}"
+                         alt="{{ $cat->nombre }}" class="cat-bg-img">
                     <div class="cat-overlay"></div>
-                    <span class="cat-name">{{ $cat['nombre'] }}</span>
+                    <span class="cat-name">{{ $cat->nombre }}</span>
                     <div class="cat-hover-content">
                         <i class="bi bi-book-half"></i>
                         <span>Ver libros</span>
@@ -219,11 +250,13 @@
     </div>
 </section>
 
+
 {{-- ============================================================
      SECCIÓN: MÁS POPULARES
 ============================================================ --}}
 <section class="populares-section">
     <div class="wave-top-pink-light"></div>
+
 
     <div class="container pb-5">
         <div class="d-flex align-items-center mb-3 mb-md-4 reveal-left">
@@ -231,110 +264,61 @@
             <i class="bi bi-chevron-right"></i>
         </div>
 
-        <div class="row g-2 g-md-3">
-            @php
-                $populares = [
-                    [
-                        'titulo' => 'El Nombre del Viento',
-                        'precio' => '$14.99',
-                        'autor'  => 'Patrick Rothfuss',
-                        'genero' => 'Fantasía',
-                        'cover'  => '',
-                        'desc'   => 'La historia de Kvothe, un estudiante de magia que se convierte en leyenda. Una obra maestra de la fantasía épica.',
-                    ],
-                    [
-                        'titulo' => 'It',
-                        'precio' => '$13.50',
-                        'autor'  => 'Stephen King',
-                        'genero' => 'Terror',
-                        'cover'  => '',
-                        'desc'   => 'En Derry, Maine, siete niños se enfrentan a un terror ancestral que toma la forma de sus peores miedos.',
-                    ],
-                    [
-                        'titulo' => 'Orgullo y Prejuicio',
-                        'precio' => '$8.99',
-                        'autor'  => 'Jane Austen',
-                        'genero' => 'Romance',
-                        'cover'  => '',
-                        'desc'   => 'La historia de amor entre Elizabeth Bennet y el señor Darcy, un clásico de la literatura universal.',
-                    ],
-                    [
-                        'titulo' => 'El Alquimista',
-                        'precio' => '$10.00',
-                        'autor'  => 'Paulo Coelho',
-                        'genero' => 'Autoayuda',
-                        'cover'  => '',
-                        'desc'   => 'Un joven pastor emprende un viaje hacia la realización de su sueño personal en esta novela filosófica.',
-                    ],
-                    [
-                        'titulo' => 'Cien Años de Soledad',
-                        'precio' => '$12.00',
-                        'autor'  => 'Gabriel García Márquez',
-                        'genero' => 'Ficción',
-                        'cover'  => '',
-                        'desc'   => 'La saga de la familia Buendía en el mítico Macondo, una obra cumbre del realismo mágico.',
-                    ],
-                    [
-                        'titulo' => 'Harry Potter',
-                        'precio' => '$15.00',
-                        'autor'  => 'J.K. Rowling',
-                        'genero' => 'Fantasía',
-                        'cover'  => 'https://imagessl2.casadellibro.com/a/l/s7/52/9788478884452.webp',
-                        'desc'   => 'Un niño descubre que es un mago y es admitido en la escuela de magia y hechicería de Hogwarts.',
-                    ],
-                    [
-                        'titulo' => 'La Sombra del Viento',
-                        'precio' => '$11.50',
-                        'autor'  => 'Carlos Ruiz Zafón',
-                        'genero' => 'Misterio',
-                        'cover'  => '',
-                        'desc'   => 'Barcelona, 1945. Un niño descubre un libro misterioso que cambiará su vida para siempre.',
-                    ],
-                    [
-                        'titulo' => 'Dune',
-                        'precio' => '$13.00',
-                        'autor'  => 'Frank Herbert',
-                        'genero' => 'Ciencia Ficción',
-                        'cover'  => '',
-                        'desc'   => 'En el planeta desértico Arrakis, Paul Atreides descubre su destino como líder de un pueblo oprimido.',
-                    ],
-                ];
-            @endphp
 
-            @foreach($populares as $index => $libro)
+        <div class="row g-2 g-md-3">
+            @forelse($libros as $index => $libro)
             <div class="col-6 col-sm-4 col-md-3 reveal-up" style="--reveal-delay: {{ $index * 0.07 }}s">
-                <div class="book-card"
-                     data-cover="{{ $libro['cover'] }}"
-                     data-titulo="{{ $libro['titulo'] }}"
-                     data-autor="{{ $libro['autor'] }}"
-                     data-genero="{{ $libro['genero'] }}"
-                     data-precio="{{ $libro['precio'] }}"
-                     data-desc="{{ $libro['desc'] }}">
-                    <div class="book-card-img-placeholder">
-                        {{-- ← CAMBIO: usa $libro['cover'] directamente --}}
-                        <img src="{{ $libro['cover'] }}"
-                             alt="{{ $libro['titulo'] }}" class="book-card-img"
-                             onerror="this.style.display='none'">
-                        <div class="book-card-hover-overlay">
-                            <i class="bi bi-eye-fill"></i>
-                            <span>Ver detalle</span>
+                @auth
+                <a href="{{ route('libros.show', $libro) }}" style="text-decoration:none;color:inherit;">
+                @else
+                <div data-login-redirect="true">
+                @endauth
+                    <div class="book-card" data-id="{{ $libro->id }}">
+                        <div class="book-card-img-placeholder">
+                            @if($libro->imagen_portada)
+                                <img src="{{ asset('storage/' . $libro->imagen_portada) }}"
+                                     alt="{{ $libro->titulo }}" class="book-card-img">
+                            @else
+                                <div style="width:100%;height:100%;background:#FDE6E6;display:flex;align-items:center;justify-content:center;">
+                                    <i class="bi bi-book-half" style="font-size:2.5rem;color:#FFB2B2;"></i>
+                                </div>
+                            @endif
+                            <div class="book-card-hover-overlay">
+                                <i class="bi bi-eye-fill"></i>
+                                <span>Ver detalle</span>
+                            </div>
+                        </div>
+                        <div class="book-card-body">
+                            <p class="book-card-title">{{ Str::limit($libro->titulo, 28) }}</p>
+                            <p class="book-card-price">${{ number_format($libro->precio, 2) }}</p>
+                            <p class="book-card-autor">{{ $libro->author->nombre ?? '—' }}</p>
                         </div>
                     </div>
-                    <div class="book-card-body">
-                        <p class="book-card-title">{{ $libro['titulo'] }}</p>
-                        <p class="book-card-price">{{ $libro['precio'] }}</p>
-                        <p class="book-card-autor">{{ $libro['autor'] }}</p>
-                    </div>
+                @auth
+                </a>
+                @else
                 </div>
+                @endauth
             </div>
-            @endforeach
+            @empty
+            <div class="col-12 text-center py-5" style="color:#888;">
+                <i class="bi bi-book" style="font-size:3rem;display:block;margin-bottom:.75rem;"></i>
+                No hay libros disponibles aún.
+            </div>
+            @endforelse
         </div>
 
+
         <div class="text-center mt-4 mt-md-5 reveal-up">
-            <a href="#" class="btn btn-hero btn-ver-mas">Ver más +</a>
+            @auth
+                <a href="{{ route('buscar') }}" class="btn btn-hero btn-ver-mas">Ver más +</a>
+            @else
+                <a href="{{ route('login') }}" class="btn btn-hero btn-ver-mas">Ver más +</a>
+            @endauth
         </div>
     </div>
 </section>
+
 
 {{-- ============================================================
      SECCIÓN: SOBRE NUESTRA LIBRERÍA
@@ -346,9 +330,11 @@
                 <h2 class="section-title font-italiana mb-3 mb-md-4">Sobre nuestra librería</h2>
                 <p class="about-text">En Amateca Librería, nos apasiona conectar a las personas con historias que inspiran, enseñan y acompañan. Somos un espacio acogedor donde cada libro tiene algo especial para ofrecerte.</p>
 
+
                 <h4 class="about-subtitle font-italiana mt-4">Ubicación</h4>
                 <p class="about-text">Nos encontramos en el corazón de la ciudad, en una zona accesible y tranquila para que disfrutes tu visita:</p>
                 <p class="about-text"><strong>Avenida Los Lectores, #123, San Salvador</strong></p>
+
 
                 <h4 class="about-subtitle font-italiana mt-4">Horarios</h4>
                 <p class="about-text">Estamos disponibles para ti en los siguientes horarios:</p>
@@ -357,6 +343,7 @@
                     <li>Sábados: 9:00 AM – 5:00 PM</li>
                     <li>Domingos: Cerrado</li>
                 </ul>
+
 
                 <h4 class="about-subtitle font-italiana mt-4">Contacto</h4>
                 <p class="about-text">¿Tienes alguna consulta o buscas un libro específico?</p>
@@ -367,6 +354,7 @@
                 </ul>
             </div>
 
+
             <div class="col-12 col-md-5 d-flex align-items-center justify-content-center reveal-right">
                 <img src="{{ asset('img/fila.png') }}" alt="Fila de libros" class="about-img">
             </div>
@@ -374,17 +362,21 @@
     </div>
 </section>
 
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
+
 
     /* ── 1. Navbar sombra al scroll ── */
     const nav = document.getElementById('mainNav');
     window.addEventListener('scroll', () => nav.classList.toggle('nav-scrolled', window.scrollY > 30), { passive: true });
 
+
     /* ── 2. Scroll hint fade ── */
     const hint = document.getElementById('scrollHint');
     window.addEventListener('scroll', () => { hint.style.opacity = window.scrollY > 60 ? '0' : '1'; }, { passive: true });
+
 
     /* ── 3. Reveal on scroll (Intersection Observer) ── */
     const revealEls = document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right, .reveal-scale');
@@ -400,13 +392,16 @@ document.addEventListener('DOMContentLoaded', function () {
     }, { threshold: 0.10 });
     revealEls.forEach(el => revealObs.observe(el));
 
+
     /* Hero: anima inmediatamente */
     document.querySelectorAll('.hero-section .reveal-left, .hero-section .reveal-scale')
         .forEach((el, i) => setTimeout(() => el.classList.add('revealed'), 150 + i * 130));
 
+
     /* ── 4. Modal ── */
     const overlay    = document.getElementById('bookModalOverlay');
     const modalClose = document.getElementById('bookModalClose');
+
 
     function openModal(data) {
         const cover = document.getElementById('modalBookCover');
@@ -414,6 +409,7 @@ document.addEventListener('DOMContentLoaded', function () {
         cover.alt = data.titulo || '';
         cover.style.display = data.cover ? 'block' : 'none';
         document.querySelector('.modal-img-placeholder-icon').style.display = data.cover ? 'none' : 'flex';
+
 
         document.getElementById('modalBookTitle').textContent  = data.titulo || 'Sin título';
         document.getElementById('modalBookAuthor').textContent = data.autor  || 'Desconocido';
@@ -424,20 +420,24 @@ document.addEventListener('DOMContentLoaded', function () {
         document.body.style.overflow = 'hidden';
     }
 
+
     function closeModal() {
         overlay.classList.remove('active');
         document.body.style.overflow = '';
     }
 
+
     modalClose.addEventListener('click', closeModal);
     overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
 
     /* ── 5. Carrusel 3D ── */
     const items = document.querySelectorAll('.book-item');
     const dots  = document.querySelectorAll('.carousel-dot');
     let current = 2;
     const total = items.length;
+
 
     function updateCarousel() {
         items.forEach((item, i) => {
@@ -454,12 +454,15 @@ document.addEventListener('DOMContentLoaded', function () {
         dots.forEach((d, i) => d.classList.toggle('active', i === current));
     }
 
+
     document.getElementById('nextBtn').addEventListener('click', () => { current = (current + 1) % total; updateCarousel(); });
     document.getElementById('prevBtn').addEventListener('click', () => { current = (current - 1 + total) % total; updateCarousel(); });
+
 
     dots.forEach(dot => {
         dot.addEventListener('click', () => { current = parseInt(dot.dataset.dot); updateCarousel(); });
     });
+
 
     let autoPlay = setInterval(() => { current = (current + 1) % total; updateCarousel(); }, 3500);
     const carouselEl = document.getElementById('bookCarousel');
@@ -467,6 +470,7 @@ document.addEventListener('DOMContentLoaded', function () {
     carouselEl.addEventListener('mouseleave', () => {
         autoPlay = setInterval(() => { current = (current + 1) % total; updateCarousel(); }, 3500);
     });
+
 
     /* Swipe en móvil para carrusel */
     let touchStartX = 0;
@@ -480,6 +484,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+
     /* Click libro carrusel → modal */
     items.forEach(item => {
         item.addEventListener('click', () => openModal({
@@ -489,7 +494,9 @@ document.addEventListener('DOMContentLoaded', function () {
         }));
     });
 
+
     updateCarousel();
+
 
     /* ── 6. Parallax oval en desktop ── */
     if (window.innerWidth > 768) {
@@ -498,6 +505,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (oval) oval.style.transform = `translate(-50%, calc(-50% + ${window.scrollY * 0.06}px))`;
         }, { passive: true });
     }
+
 
     /* ── 7. Hover tilt 3D en tarjetas (solo desktop) ── */
     if (window.innerWidth > 768) {
@@ -512,14 +520,15 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    /* ── 8. Click tarjeta popular → modal ── */
-    document.querySelectorAll('.book-card').forEach(card => {
-        card.addEventListener('click', () => openModal({
-            cover: card.dataset.cover, titulo: card.dataset.titulo,
-            autor: card.dataset.autor, genero: card.dataset.genero,
-            precio: card.dataset.precio, desc: card.dataset.desc,
-        }));
+
+    /* ── 8. Click tarjeta popular → redirigir a login si es invitado ── */
+    document.querySelectorAll('[data-login-redirect]').forEach(wrapper => {
+        wrapper.style.cursor = 'pointer';
+        wrapper.addEventListener('click', () => {
+            window.location.href = '{{ route("login") }}';
+        });
     });
+
 
     /* ── 9. Contador animado badge descuento ── */
     const badge = document.querySelector('.discount-number');
@@ -531,6 +540,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }, { threshold: 0.6 }).observe(badge);
     }
+
 
     /* ── 10. Ripple en botones ── */
     document.querySelectorAll('.btn-hero').forEach(btn => {
@@ -545,9 +555,12 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+
 });
 </script>
+
 
 <x-footer />
 </body>
 </html>
+
