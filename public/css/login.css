@@ -1,0 +1,273 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Italiana&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ── Body ── */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #ffffff;
+    height: 100vh;
+    overflow: hidden;
+}
+
+
+/* ── Contenedor principal ── */
+.main-container {
+    height: 100vh;
+    position: relative;
+    display: flex;
+}
+
+
+/* ── Logo arriba a la izquierda ── */
+.logo {
+    position: absolute;
+    top: 22px;
+    left: 28px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+
+.logo img {
+    width: 54px;   
+    height: auto;
+}
+
+
+.logo span {
+    font-family: 'Poppins', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #2c2c2c;
+}
+
+
+/* ══════════════════════════════
+   LADO IZQUIERDO — Formulario
+   ══════════════════════════════ */
+.form-section {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    padding: 40px;
+    position: relative;
+    z-index: 2;
+}
+
+
+.form-box {
+    width: 100%;
+    max-width: 370px;
+}
+
+
+/* Título con fuente Italiana */
+.form-box h1 {
+    font-family: 'Italiana', serif;
+    font-size: 42px;
+    font-weight: 400;
+    color: #2c2c2c;
+    margin-bottom: 44px;
+    line-height: 1.2;
+}
+
+
+/* Grupos de campo */
+.field-group {
+    position: relative;
+    margin-bottom: 28px;
+}
+
+
+/* Label flotante estilo material */
+.field-group label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: #2c2c2c;
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    background: #ffffff;
+    padding: 0 6px;
+    z-index: 1;
+}
+
+
+/* Input con bordes redondeados */
+.field-group input {
+    width: 100%;
+    padding: 16px 22px;
+    border: 1.5px solid #b0b0b0;
+    border-radius: 40px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: #333;
+    background: transparent;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+
+.field-group input::placeholder {
+    color: #c5c5c5;
+    font-size: 13px;
+}
+
+
+.field-group input:focus {
+    border-color: #e88b8b;
+}
+
+
+.field-group input.input-error {
+    border-color: #e05555;
+}
+
+
+/* Mensajes de error */
+.error-message {
+    display: block;
+    color: #e05555;
+    font-size: 11px;
+    margin-top: 6px;
+    padding-left: 18px;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+/* Error general */
+.alert-error {
+    background-color: #fde8e8;
+    border: 1px solid #e05555;
+    border-radius: 12px;
+    color: #c0392b;
+    padding: 10px 18px;
+    margin-bottom: 24px;
+    font-size: 13px;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+/* Botón */
+.btn-login {
+    width: 100%;
+    padding: 16px;
+    background-color: #e88b8b;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.25s;
+    letter-spacing: 0.3px;
+}
+
+
+.btn-login:hover {
+    background-color: #d97777;
+}
+
+
+/* Link a registro */
+.register-link {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 13px;
+    color: #888;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+.register-link a {
+    color: #e07070;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+
+.register-link a:hover {
+    text-decoration: underline;
+}
+
+
+/* ══════════════════════════════
+   LADO DERECHO — Imagen
+   ══════════════════════════════ */
+.image-section {
+    width: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Forma rosa redondeada en arco (igual a la imagen) */
+.pink-shape {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 80%;
+    height: 100%;
+    background-color: #f2d4d4;
+    border-top-left-radius: 50% 50%;
+    border-bottom-left-radius: 50% 50%;
+}
+
+
+/* Imagen del libro */
+.book-img {
+    position: relative;
+    width: 440px;
+    max-width: 88%;
+    z-index: 2;
+    object-fit: contain;
+}
+
+
+/* ── Responsive ── */
+@media (max-width: 991px) {
+    body { overflow: auto; }
+
+
+    .main-container {
+        flex-direction: column;
+        height: auto;
+    }
+
+
+    .form-section {
+        width: 100%;
+        padding: 80px 30px 40px;
+    }
+
+
+    .image-section {
+        display: none;
+    }
+
+
+    .form-box h1 {
+        font-size: 32px;
+    }
+}
+
