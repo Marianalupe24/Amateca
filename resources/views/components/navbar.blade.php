@@ -1,11 +1,4 @@
-{{--
-    NAVBAR DEL DASHBOARD
-    Ubicación: pégalo dentro de resources/views/dashboard.blade.php
-    reemplazando todo el bloque <nav class="dash-navbar"...> que tenías.
-    
-    También reemplaza el bloque .dash-navbar en dashboard.css
-    con el CSS de navbar.css que te genero aparte.
---}}
+
 
 {{-- Fuentes necesarias --}}
 <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
@@ -25,20 +18,30 @@
             </a>
 
             {{-- Buscador --}}
-            <div class="dash-search-wrap">
+            <form action="{{ route('buscar') }}" method="GET" class="dash-search-wrap" style="display:flex;align-items:center;">
                 <i class="bi bi-search dash-search-icon"></i>
-                <input type="text" class="dash-search" placeholder="Buscar libros, autores, géneros...">
-            </div>
+                <input type="text" name="q" class="dash-search"
+                       value="{{ request('q') }}"
+                       placeholder="Buscar libros, autores, géneros..."
+                       autocomplete="off">
+            </form>
 
             {{-- Acciones --}}
             <div class="dash-nav-actions">
-                <button class="dash-icon-btn" title="Favoritos">
-                    <i class="bi bi-heart"></i>
-                </button>
-                <button class="dash-icon-btn" title="Carrito">
+                @if(Auth::user()->isStaff())
+                    <a href="{{ route('admin.libros.index') }}" class="dash-icon-btn" title="Panel Admin" style="text-decoration:none;">
+                        <i class="bi bi-shield-check"></i>
+                    </a>
+                @endif
+                <a href="{{ route('carrito.index') }}" class="dash-icon-btn" title="Carrito" style="text-decoration:none;position:relative;">
                     <i class="bi bi-bag"></i>
-                    <span class="dash-badge">3</span>
-                </button>
+                    @php
+                        $cartCount = Auth::user()->cart?->details()->sum('cantidad') ?? 0;
+                    @endphp
+                    @if($cartCount > 0)
+                        <span class="dash-badge">{{ $cartCount }}</span>
+                    @endif
+                </a>
                 {{-- Avatar / menú usuario --}}
                 <div class="dash-avatar-wrap" id="avatarWrap">
                     <button class="dash-avatar" id="avatarBtn">
@@ -46,8 +49,8 @@
                     </button>
                     <div class="dash-dropdown" id="avatarDropdown">
                         <p class="dash-dropdown-name">{{ Auth::user()->name }}</p>
-                        <a href="#" class="dash-dropdown-item"><i class="bi bi-person"></i> Mi perfil</a>
-                        <a href="#" class="dash-dropdown-item"><i class="bi bi-clock-history"></i> Mis pedidos</a>
+                        <a href="{{ route('perfil') }}" class="dash-dropdown-item"><i class="bi bi-person"></i> Mi perfil</a>
+                        <a href="{{ route('mis-compras') }}" class="dash-dropdown-item"><i class="bi bi-clock-history"></i> Mis compras</a>
                         <div class="dash-dropdown-divider"></div>
                         <form action="{{ route('logout') }}" method="POST">
                             @csrf
@@ -61,4 +64,3 @@
 
         </div>
     </nav>
-</script>
