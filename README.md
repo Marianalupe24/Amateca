@@ -5,10 +5,6 @@ Plataforma web enfocada en la gestión y visualización de libros, permitiendo a
 
 ---
 
-## Documentación del Proyecto
-Puedes consultar el documento completo en el siguiente enlace:
-
--> [Ver PDF del proyecto](docs/Amateca.pdf)
 
 ---
 
