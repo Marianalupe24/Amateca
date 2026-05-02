@@ -10,18 +10,13 @@ Plataforma web enfocada en la gestión y visualización de libros, permitiendo a
 
 ## Integrantes del Equipo
 
-- **Gabriela Vanessa Alberto Escalón-AE252972** – Grupo Teórico: G03T 
-- **Katherine Gissella Garay Alvarado-GA252993** – Grupo Teórico: G03T
-- **Mariana Guadalupe Ramírez Lara-RL252957** – Grupo Teórico: G03T 
-- **Samuel Eliezer Rivera De Paz-RD253031** – Grupo Teórico: G03T 
+- **Gabriela Vanessa Alberto Escalón-AE252972** 
+- **Katherine Gissella Garay Alvarado-GA252993** 
+- **Mariana Guadalupe Ramírez Lara-RL252957** 
+- **Samuel Eliezer Rivera De Paz-RD253031**
 
 ---
 
-## Gestión del Proyecto
-
--> [Espacio en Notion](https://www.notion.so/Proyecto-de-DSS-bb69e71a4eb1488da6456ffe1faac1c7?source=copy_link )
-
----
 
 ## Diseños Mockups
 
