@@ -65,6 +65,16 @@ class User extends Authenticatable
         return in_array($this->rol, ['admin', 'empleado']);
     }
 
+    public function scopeEmployees($query)
+    {
+        return $query->where('rol', 'empleado');
+    }
+
+    public function scopeAdmins($query)
+    {
+        return $query->where('rol', 'admin');
+    }
+
     public function cart()
     {
         return $this->hasOne(\App\Models\Cart::class, 'id_usuario');

@@ -16,7 +16,7 @@
         .back-link:hover { color: #5886B8; }
         .detail-card { background: #fff; border-radius: 16px; box-shadow: 0 3px 16px rgba(98,79,79,.1); overflow: hidden; }
         .detail-img-col { background: #FDE6E6; min-height: 340px; display: flex; align-items: center; justify-content: center; padding: 2rem; }
-        .detail-img { max-width: 220px; width: 100%; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,.2); }
+        .detail-img { max-width: 600px; width: 100%; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,.2); }
         .detail-placeholder { font-size: 6rem; color: #FFB2B2; }
         .detail-body { padding: 2rem 2.5rem; }
         .detail-categoria { background: #FDE6E6; color: #624F4F; font-size: .78rem; font-weight: 600; padding: .25rem .75rem; border-radius: 20px; display: inline-block; margin-bottom: .75rem; }
@@ -81,7 +81,7 @@
     @endif
 
 
-    {{-- ── DETALLE PRINCIPAL ── --}}
+
     <div class="detail-card mb-4">
         <div class="row g-0">
             <div class="col-12 col-md-4 detail-img-col">
@@ -148,26 +148,6 @@
         </div>
     </div>
 
-
-    {{-- ── CALIFICACIÓN ── --}}
-    <div class="mb-4">
-        <p class="section-title"><i class="bi bi-star me-1"></i>Calificación</p>
-        @if($hasPurchased)
-            <form action="{{ route('calificaciones.store', $book) }}" method="POST">
-                @csrf
-                <div class="rating-stars-input flex-row-reverse">
-                    @for($i = 5; $i >= 1; $i--)
-                        <input type="radio" name="estrellas" id="star{{ $i }}" value="{{ $i }}"
-                               {{ ($userRating && $userRating->estrellas == $i) ? 'checked' : '' }}>
-                        <label for="star{{ $i }}"><i class="bi bi-star-fill"></i></label>
-                    @endfor
-                </div>
-                <button type="submit" class="btn-comentar">Guardar calificación</button>
-            </form>
-        @else
-            <p class="text-muted small"><i class="bi bi-lock me-1"></i>Solo usuarios que han comprado este libro pueden calificarlo.</p>
-        @endif
-    </div>
 
 
     {{-- ── COMENTARIOS ── --}}

@@ -8,20 +8,23 @@
 /* ── Contenedor del footer ── */
 .site-footer {
     position: relative;
-    background-color: #f0a0a0; /* rosa salmón */
+    background-color: #f0a0a0;
+    /* rosa salmón */
     border-radius: 40px 40px 0 0;
     padding: 0 60px 20px;
-    margin-top: 80px; /* espacio para que el logo sobresalga */
+    margin-top: 80px;
+    /* espacio para que el logo sobresalga */
     font-family: 'Poppins', sans-serif;
 }
 
 /* ── Logo en círculo que sobresale ── */
 .footer-logo {
     position: absolute;
-    top: -30px; /* más abajo que antes */
+    top: -30px;
+    /* más abajo que antes */
     left: 50%;
     transform: translateX(-50%);
-    
+
     width: 90px;
     height: 90px;
 
@@ -30,13 +33,14 @@
     align-items: center;
 
     background: #ffffff;
-    border-radius: 50%; /* círculo perfecto */
-    
+    border-radius: 50%;
+    /* círculo perfecto */
+
     z-index: 10;
 }
 
 .footer-logo img {
-    width: 50px;
+    width: 70px;
     height: auto;
 }
 
@@ -45,7 +49,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-top: 50px; /* aumentado para que no choque con el círculo */
+    padding-top: 50px;
+    /* aumentado para que no choque con el círculo */
     padding-bottom: 10px;
 }
 
@@ -106,4 +111,3 @@
         width: 40px;
     }
 }
-

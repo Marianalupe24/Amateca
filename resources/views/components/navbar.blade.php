@@ -14,7 +14,6 @@
             {{-- Logo --}}
             <a href="{{ route('dashboard') }}" class="dash-brand">
                 <img src="{{ asset('img/logoSinFondo.png') }}" alt="Amateca" class="dash-logo-img">
-                <span class="dash-brand-name">AMATECA</span>
             </a>
 
             {{-- Buscador --}}

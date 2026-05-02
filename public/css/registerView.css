@@ -1,15 +1,14 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Italiana&display=swap');
 
-/* ── Reset ── */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* ── Body ── */
+
 body {
     font-family: 'Poppins', sans-serif;
     background-color: #ffffff;
@@ -17,7 +16,7 @@ body {
     overflow: hidden;
 }
 
-/* ── Contenedor principal ── */
+
 .main-container {
     height: 100vh;
     display: flex;
@@ -34,8 +33,9 @@ body {
     align-items: center;
     gap: 10px;
 }
+
 .logo img {
-    width: 54px;
+    width: 70px;
     height: auto;
 }
 
@@ -51,11 +51,11 @@ body {
    LADO IZQUIERDO — Imagen
    ══════════════════════════════ */
 .image-section {
-    width: 42%;
+    width: 70%;
     position: relative;
     display: flex;
     align-items: flex-end;
-    justify-content: center;
+
 }
 
 /* Forma rosa en arco (izquierda, abierta hacia la derecha) */
@@ -63,7 +63,7 @@ body {
     position: absolute;
     left: 0;
     top: 0;
-    width: 85%;
+    width: 90%;
     height: 100%;
     background-color: #f2d4d4;
     border-top-right-radius: 50% 50%;
@@ -73,13 +73,11 @@ body {
 /* Imagen del libro */
 .book-img {
     position: relative;
-    width: 380px;
+    width: 700px;
     max-width: 92%;
     z-index: 2;
     object-fit: contain;
-    /* La imagen toca el borde inferior */
-    margin-bottom: 0;
-    align-self: flex-end;
+
 }
 
 /* ══════════════════════════════
@@ -209,7 +207,9 @@ body {
 
 /* ── Responsive ── */
 @media (max-width: 991px) {
-    body { overflow: auto; }
+    body {
+        overflow: auto;
+    }
 
     .main-container {
         flex-direction: column;

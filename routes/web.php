@@ -15,6 +15,9 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\Admin\CommentController as AdminCommentController;
+use App\Http\Controllers\Admin\EmployeeController as AdminEmployeeController;
+use App\Http\Controllers\Admin\SalesReportController as AdminSalesReportController;
+use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 
 /* ── Ruta principal → home ── */
 Route::get('/home', [HomeController::class, 'index'])->name('home');
@@ -67,6 +70,8 @@ Route::middleware('auth')->group(function () {
 
 /* ── Rutas de administración — staff (admin + empleado) ── */
 Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(function () {
+    /* ── Dashboard Admin ── */
+    Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
 
     /* ── Autores ── */
     Route::get('/autores',                [AuthorController::class, 'index'])->name('autores.index');
@@ -98,6 +103,12 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
         Route::get('/usuarios', [AdminUserController::class, 'index'])->name('usuarios.index');
         Route::get('/comentarios', [AdminCommentController::class, 'index'])->name('comentarios.index');
         Route::delete('/comentarios/{comment}', [AdminCommentController::class, 'destroy'])->name('comentarios.destroy');
+        
+        /* ── Empleados ── */
+        Route::resource('employees', AdminEmployeeController::class);
+
+        /* ── Reporte de Ventas ── */
+        Route::get('sales-report', [AdminSalesReportController::class, 'index'])->name('sales-report');
     });
 
 });

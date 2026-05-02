@@ -43,8 +43,15 @@
 }
 
 @keyframes floatBook {
-    0%, 100% { transform: translateY(0px); }
-    50%       { transform: translateY(-6px); }
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
 }
 
 /* Tapas */
@@ -61,17 +68,25 @@
 .cover::after {
     content: "";
     position: absolute;
-    top: 10px; left: 10px; right: 10px; bottom: 10px;
-    background: repeating-linear-gradient(
-        to bottom,
-        #d6d6d6, #d6d6d6 2px,
-        transparent 2px, transparent 8px
-    );
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    background: repeating-linear-gradient(to bottom,
+            #d6d6d6, #d6d6d6 2px,
+            transparent 2px, transparent 8px);
     opacity: 0.6;
 }
 
-.cover.left  { left: 0;  border-right: none; }
-.cover.right { right: 0; border-left: none;  }
+.cover.left {
+    left: 0;
+    border-right: none;
+}
+
+.cover.right {
+    right: 0;
+    border-left: none;
+}
 
 /* Lomo */
 .spine {
@@ -104,26 +119,61 @@
 .page::after {
     content: "";
     position: absolute;
-    top: 10px; left: 10px; right: 10px; bottom: 10px;
-    background: repeating-linear-gradient(
-        to bottom,
-        #d6d6d6, #d6d6d6 2px,
-        transparent 2px, transparent 8px
-    );
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    background: repeating-linear-gradient(to bottom,
+            #d6d6d6, #d6d6d6 2px,
+            transparent 2px, transparent 8px);
     opacity: 0.6;
 }
 
 @keyframes flipComplete {
-    0%   { transform: rotateY(0deg);    opacity: 1; z-index: 10; }
-    45%  { transform: rotateY(-180deg); opacity: 1; z-index: 10; }
-    50%  { transform: rotateY(-180deg); opacity: 0; z-index: 10; }
-    51%  { transform: rotateY(0deg);    opacity: 0; z-index: 1;  }
-    100% { transform: rotateY(0deg);    opacity: 0; z-index: 1;  }
+    0% {
+        transform: rotateY(0deg);
+        opacity: 1;
+        z-index: 10;
+    }
+
+    45% {
+        transform: rotateY(-180deg);
+        opacity: 1;
+        z-index: 10;
+    }
+
+    50% {
+        transform: rotateY(-180deg);
+        opacity: 0;
+        z-index: 10;
+    }
+
+    51% {
+        transform: rotateY(0deg);
+        opacity: 0;
+        z-index: 1;
+    }
+
+    100% {
+        transform: rotateY(0deg);
+        opacity: 0;
+        z-index: 1;
+    }
 }
 
-.p1 { animation: flipComplete 3.6s infinite linear; }
-.p2 { animation: flipComplete 3.6s infinite linear; animation-delay: 1.2s; }
-.p3 { animation: flipComplete 3.6s infinite linear; animation-delay: 2.4s; }
+.p1 {
+    animation: flipComplete 2.1s infinite linear;
+}
+
+.p2 {
+    animation: flipComplete 2.1s infinite linear;
+    animation-delay: 1.2s;
+}
+
+.p3 {
+    animation: flipComplete 2.1s infinite linear;
+    animation-delay: 2.4s;
+}
 
 /* ── Texto "Cargando..." ── */
 .loading-text {
@@ -138,9 +188,9 @@
 
 /* Icono flor */
 .loader-icon {
-    width:      34px !important;
-    height:     34px !important;
-    max-width:  34px !important;
+    width: 34px !important;
+    height: 34px !important;
+    max-width: 34px !important;
     max-height: 34px !important;
     object-fit: contain;
     display: inline-block;
@@ -148,8 +198,15 @@
 }
 
 @keyframes bounceIcon {
-    0%, 100% { transform: translateY(0); }
-    50%       { transform: translateY(-6px); }
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
 }
 
 /* Letras rebotando */
@@ -158,19 +215,58 @@
     animation: bounceLetters 1.4s infinite ease-in-out;
 }
 
-.letters span:nth-child(1)  { animation-delay: 0s;   }
-.letters span:nth-child(2)  { animation-delay: 0.1s; }
-.letters span:nth-child(3)  { animation-delay: 0.2s; }
-.letters span:nth-child(4)  { animation-delay: 0.3s; }
-.letters span:nth-child(5)  { animation-delay: 0.4s; }
-.letters span:nth-child(6)  { animation-delay: 0.5s; }
-.letters span:nth-child(7)  { animation-delay: 0.6s; }
-.letters span:nth-child(8)  { animation-delay: 0.7s; }
-.letters span:nth-child(9)  { animation-delay: 0.8s; }
-.letters span:nth-child(10) { animation-delay: 0.9s; }
-.letters span:nth-child(11) { animation-delay: 1.0s; }
+.letters span:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.letters span:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.letters span:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.letters span:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+.letters span:nth-child(5) {
+    animation-delay: 0.4s;
+}
+
+.letters span:nth-child(6) {
+    animation-delay: 0.5s;
+}
+
+.letters span:nth-child(7) {
+    animation-delay: 0.6s;
+}
+
+.letters span:nth-child(8) {
+    animation-delay: 0.7s;
+}
+
+.letters span:nth-child(9) {
+    animation-delay: 0.8s;
+}
+
+.letters span:nth-child(10) {
+    animation-delay: 0.9s;
+}
+
+.letters span:nth-child(11) {
+    animation-delay: 1.0s;
+}
 
 @keyframes bounceLetters {
-    0%, 100% { transform: translateY(0); }
-    50%       { transform: translateY(-6px); }
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
 }
