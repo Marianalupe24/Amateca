@@ -12,8 +12,6 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
-    /* ── REGISTRO ── */
-
 
     public function showRegister()
     {
@@ -28,22 +26,66 @@ class AuthController extends Controller
 
     public function register(Request $request)
     {
-        $request->validate([
-            'name'      => 'required|string|max:255',
-            'apellido'  => 'required|string|max:255',
-            'email'     => 'required|email|unique:users,email',
-            'telefono'  => 'nullable|string|max:20',
-            'password'  => 'required|min:8|confirmed',
-        ], [
-            'name.required'      => 'El nombre es obligatorio.',
-            'apellido.required'  => 'El apellido es obligatorio.',
-            'email.required'     => 'El correo es obligatorio.',
-            'email.email'        => 'El correo no tiene un formato válido.',
-            'email.unique'       => 'Este correo ya está registrado.',
-            'password.required'  => 'La contraseña es obligatoria.',
-            'password.min'       => 'La contraseña debe tener al menos 8 caracteres.',
-            'password.confirmed' => 'Las contraseñas no coinciden.',
-        ]);
+       $request->validate([
+        'name' => [
+            'required',
+            'string',
+            'max:255',
+            'regex:/^[\pL\s]+$/u' // Solo letras y espacios
+        ],
+
+        'apellido' => [
+            'required',
+            'string',
+            'max:255',
+            'regex:/^[\pL\s]+$/u' // Solo letras y espacios
+        ],
+
+        'email' => [
+            'required',
+            'string',
+            'email:rfc,dns', // Verifica formato más válido
+            'max:255',
+            'unique:users,email'
+        ],
+
+        'telefono' => [
+            'nullable',
+            'regex:/^[0-9]{8,15}$/', // Solo números entre 8 y 15 dígitos
+        ],
+
+        'password' => [
+            'required',
+            'string',
+            'min:8',
+            'confirmed',
+            'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/'
+        ],
+
+    ], [
+
+        
+        'name.required' => 'El nombre es obligatorio.',
+        'name.regex' => 'El nombre solo puede contener letras y espacios.',
+
+       
+        'apellido.required' => 'El apellido es obligatorio.',
+        'apellido.regex' => 'El apellido solo puede contener letras y espacios.',
+
+  
+        'email.required' => 'El correo es obligatorio.',
+        'email.email' => 'Ingrese un correo válido.',
+        'email.unique' => 'Este correo ya está registrado.',
+
+       
+        'telefono.regex' => 'El teléfono solo debe contener números válidos.',
+
+      
+        'password.required' => 'La contraseña es obligatoria.',
+        'password.min' => 'La contraseña debe tener al menos 8 caracteres.',
+        'password.confirmed' => 'Las contraseñas no coinciden.',
+        'password.regex' => 'La contraseña debe tener al menos una mayúscula, una minúscula y un número.',
+    ]);
 
 
         $user = User::create([
@@ -63,7 +105,7 @@ class AuthController extends Controller
     }
 
 
-    /* ── LOGIN ── */
+
 
 
     public function showLogin()
@@ -108,8 +150,7 @@ class AuthController extends Controller
     }
 
 
-    /* ── LOGOUT ── */
-
+  
 
     public function logout(Request $request)
     {

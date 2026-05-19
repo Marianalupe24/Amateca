@@ -5,18 +5,13 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
 
- {{-- ============================================================
-         NAVBAR
-    ============================================================ --}}
     <nav class="dash-navbar" id="dashNav">
         <div class="dash-nav-inner">
 
-            {{-- Logo --}}
             <a href="{{ route('dashboard') }}" class="dash-brand">
                 <img src="{{ asset('img/logoSinFondo.png') }}" alt="Amateca" class="dash-logo-img">
             </a>
 
-            {{-- Buscador --}}
             <form action="{{ route('buscar') }}" method="GET" class="dash-search-wrap" style="display:flex;align-items:center;">
                 <i class="bi bi-search dash-search-icon"></i>
                 <input type="text" name="q" class="dash-search"
@@ -25,7 +20,6 @@
                        autocomplete="off">
             </form>
 
-            {{-- Acciones --}}
             <div class="dash-nav-actions">
                 @if(Auth::user()->isStaff())
                     <a href="{{ route('admin.libros.index') }}" class="dash-icon-btn" title="Panel Admin" style="text-decoration:none;">
@@ -63,3 +57,26 @@
 
         </div>
     </nav>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const nav = document.getElementById('dashNav');
+        if (nav) {
+            window.addEventListener('scroll', () => {
+                nav.classList.toggle('scrolled', window.scrollY > 20);
+            }, { passive: true });
+        }
+
+
+        const avatarBtn      = document.getElementById('avatarBtn');
+        const avatarDropdown = document.getElementById('avatarDropdown');
+        if (avatarBtn) {
+            avatarBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                avatarDropdown.classList.toggle('open');
+            });
+            document.addEventListener('click', () => avatarDropdown.classList.remove('open'));
+        }
+    });
+    </script>

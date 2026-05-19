@@ -16,12 +16,9 @@ class BookPublicController extends Controller
         abort_if(!$book->activo, 404);
 
 
-        $book->load(['author', 'category', 'comments.user', 'ratings']);
+        $book->load(['author', 'category', 'comments.user']);
 
-
-        $avgRating   = $book->ratings->avg('estrellas');
         $userComment = $book->comments->firstWhere('id_usuario', Auth::id());
-        $userRating  = $book->ratings->firstWhere('id_usuario', Auth::id());
 
 
         $hasPurchased = Factura::where('id_usuario', Auth::id())
@@ -30,7 +27,7 @@ class BookPublicController extends Controller
             ->exists();
 
 
-        return view('libros.show', compact('book', 'avgRating', 'userComment', 'userRating', 'hasPurchased'));
+        return view('libros.show', compact('book',  'userComment', 'hasPurchased'));
     }
 }
 

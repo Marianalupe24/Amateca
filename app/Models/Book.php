@@ -63,10 +63,6 @@ class Book extends Model
     }
 
 
-    public function ratings()
-    {
-        return $this->hasMany(\App\Models\Rating::class, 'id_libro');
-    }
 }
 
 

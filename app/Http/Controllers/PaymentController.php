@@ -56,7 +56,9 @@ class PaymentController extends Controller
 
 
         try {
+            //Se crea la intencion de pago en Stripe
             $intent = PaymentIntent::create([
+                //array asociativo 
                 'amount'               => $amountCents,
                 'currency'             => 'usd',
                 'payment_method'       => $request->payment_method_id,
@@ -64,14 +66,18 @@ class PaymentController extends Controller
                 'confirm'              => true,
                 'return_url'           => route('compra.exitosa'),
             ]);
+            //En caso de error al procesar el pago
         } catch (CardException $e) {
+            //Mensaje de error de stripe
             return response()->json(['error' => $e->getMessage()], 422);
         } catch (\Exception $e) {
+            //Cualquier otro error
             return response()->json(['error' => 'Error al procesar el pago. Intente de nuevo.'], 500);
         }
 
-
+        //Si el pago fue exitoso
         if ($intent->status === 'succeeded') {
+            //Transaccion para asegurar que se complete todo o nada
             DB::transaction(function () use ($cart, $total, $intent) {
                 $factura = Factura::create([
                     'id_usuario'         => Auth::id(),
@@ -81,28 +87,29 @@ class PaymentController extends Controller
                     'fecha'              => now()->toDateString(),
                 ]);
 
-
+                //Recorre todos los productos del carrito
                 foreach ($cart->details as $detalle) {
+                    //Se crea el detalle de la factura
                     $factura->detalles()->create([
+                        //array asociativo 
                         'id_libro'        => $detalle->id_libro,
                         'cantidad'        => $detalle->cantidad,
                         'precio_unitario' => $detalle->precio_unitario,
                     ]);
 
-
-                    // Reducir stock
+                    //Se decrementa el stock del libro
                     $detalle->book->decrement('stock', $detalle->cantidad);
                 }
 
 
-                // Vaciar carrito
+                //Se elimina el carrito
                 $cart->details()->delete();
 
 
                 session(['ultima_factura_id' => $factura->id]);
             });
 
-
+            //Se redirige al usuario a la pagina de exito
             return response()->json(['success' => true, 'redirect' => route('compra.exitosa')]);
         }
 

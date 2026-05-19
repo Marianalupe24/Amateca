@@ -15,14 +15,7 @@
 
 
 <body>
-
-
-    <x-loader />
-
-
-{{-- ============================================================
-     MODAL DE LIBRO
-============================================================ --}}
+<x-loader />
 <div class="book-modal-overlay" id="bookModalOverlay">
     <div class="book-modal" id="bookModal">
         <button class="book-modal-close" id="bookModalClose">
@@ -49,9 +42,6 @@
 </div>
 
 
-{{-- ============================================================
-     NAVBAR
-============================================================ --}}
 <nav class="navbar navbar-light bg-white px-4 py-3" id="mainNav">
     <a class="navbar-brand d-flex flex-column align-items-center" href="{{ route('home') }}">
         <div class="logo-placeholder">
@@ -69,10 +59,6 @@
     </div>
 </nav>
 
-
-{{-- ============================================================
-     HERO SECTION
-============================================================ --}}
 <section class="hero-section">
     <div class="container-fluid px-3 px-md-4">
         <div class="row align-items-center min-vh-80">
@@ -108,10 +94,6 @@
     </div>
 </section>
 
-
-{{-- ============================================================
-     SECCIÓN: CARRUSEL
-============================================================ --}}
 <section class="carousel-section" id="libros">
     <div class="wave-top-down"></div>
 
@@ -173,9 +155,6 @@
 </section>
 
 
-{{-- ============================================================
-     SECCIÓN: PROMOCIONES
-============================================================ --}}
 <section class="promo-section py-5">
     <div class="container">
         <h2 class="section-title font-italiana text-center mb-4 mb-md-5 reveal-up">Promociones pensadas para ti</h2>
@@ -209,9 +188,6 @@
 </section>
 
 
-{{-- ============================================================
-     SECCIÓN: CATEGORÍAS
-============================================================ --}}
 <section class="categories-section py-5">
     <div class="container">
         <h2 class="section-title font-italiana text-center mb-4 mb-md-5 reveal-up">Explora nuestras categorías</h2>
@@ -250,10 +226,6 @@
     </div>
 </section>
 
-
-{{-- ============================================================
-     SECCIÓN: MÁS POPULARES
-============================================================ --}}
 <section class="populares-section">
     <div class="wave-top-pink-light"></div>
 
@@ -320,9 +292,7 @@
 </section>
 
 
-{{-- ============================================================
-     SECCIÓN: SOBRE NUESTRA LIBRERÍA
-============================================================ --}}
+
 <section class="about-section py-5">
     <div class="container">
         <div class="row gy-4">
@@ -368,17 +338,14 @@
 document.addEventListener('DOMContentLoaded', function () {
 
 
-    /* ── 1. Navbar sombra al scroll ── */
     const nav = document.getElementById('mainNav');
     window.addEventListener('scroll', () => nav.classList.toggle('nav-scrolled', window.scrollY > 30), { passive: true });
 
 
-    /* ── 2. Scroll hint fade ── */
     const hint = document.getElementById('scrollHint');
     window.addEventListener('scroll', () => { hint.style.opacity = window.scrollY > 60 ? '0' : '1'; }, { passive: true });
 
 
-    /* ── 3. Reveal on scroll (Intersection Observer) ── */
     const revealEls = document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right, .reveal-scale');
     const revealObs = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -393,12 +360,10 @@ document.addEventListener('DOMContentLoaded', function () {
     revealEls.forEach(el => revealObs.observe(el));
 
 
-    /* Hero: anima inmediatamente */
     document.querySelectorAll('.hero-section .reveal-left, .hero-section .reveal-scale')
         .forEach((el, i) => setTimeout(() => el.classList.add('revealed'), 150 + i * 130));
 
 
-    /* ── 4. Modal ── */
     const overlay    = document.getElementById('bookModalOverlay');
     const modalClose = document.getElementById('bookModalClose');
 
@@ -432,7 +397,6 @@ document.addEventListener('DOMContentLoaded', function () {
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
 
-    /* ── 5. Carrusel 3D ── */
     const items = document.querySelectorAll('.book-item');
     const dots  = document.querySelectorAll('.carousel-dot');
     let current = 2;
@@ -471,8 +435,6 @@ document.addEventListener('DOMContentLoaded', function () {
         autoPlay = setInterval(() => { current = (current + 1) % total; updateCarousel(); }, 3500);
     });
 
-
-    /* Swipe en móvil para carrusel */
     let touchStartX = 0;
     carouselEl.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
     carouselEl.addEventListener('touchend', e => {
@@ -485,7 +447,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 
-    /* Click libro carrusel → modal */
     items.forEach(item => {
         item.addEventListener('click', () => openModal({
             cover: item.dataset.cover, titulo: item.dataset.titulo,
@@ -498,7 +459,6 @@ document.addEventListener('DOMContentLoaded', function () {
     updateCarousel();
 
 
-    /* ── 6. Parallax oval en desktop ── */
     if (window.innerWidth > 768) {
         const oval = document.querySelector('.hero-oval-bg');
         window.addEventListener('scroll', () => {
@@ -507,7 +467,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-    /* ── 7. Hover tilt 3D en tarjetas (solo desktop) ── */
     if (window.innerWidth > 768) {
         document.querySelectorAll('.book-card, .category-card').forEach(card => {
             card.addEventListener('mousemove', e => {
@@ -521,7 +480,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-    /* ── 8. Click tarjeta popular → redirigir a login si es invitado ── */
     document.querySelectorAll('[data-login-redirect]').forEach(wrapper => {
         wrapper.style.cursor = 'pointer';
         wrapper.addEventListener('click', () => {
@@ -530,7 +488,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 
-    /* ── 9. Contador animado badge descuento ── */
     const badge = document.querySelector('.discount-number');
     if (badge) {
         new IntersectionObserver(entries => {
@@ -542,7 +499,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-    /* ── 10. Ripple en botones ── */
     document.querySelectorAll('.btn-hero').forEach(btn => {
         btn.addEventListener('click', function(e) {
             const r = document.createElement('span');

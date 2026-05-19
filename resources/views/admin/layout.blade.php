@@ -217,7 +217,8 @@
 
 <!-- SIDEBAR -->
 <aside class="sidebar" id="sidebar">
-    <a href="{{ route('admin.dashboard') }}" class="sidebar-brand">Amate<span>ca</span> Admin</a>
+    <a href="{{ route('admin.dashboard') }}" class="sidebar-brand">Amateca</a>
+    
     
     <nav class="sidebar-nav">
         <!-- GENERAL -->

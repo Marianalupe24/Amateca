@@ -53,7 +53,7 @@ class CartController extends Controller
         }
 
 
-        return back()->with('success', "«{$book->titulo}» añadido al carrito.");
+        return back()->with('success', "{$book->titulo} añadido al carrito.");
     }
 
 

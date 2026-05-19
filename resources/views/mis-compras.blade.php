@@ -40,7 +40,6 @@
 <x-loader />
 <x-navbar />
 
-
 <div class="purchases-wrap">
     <h1 class="page-title"><i class="bi bi-bag-check me-2"></i>Mis Compras</h1>
 

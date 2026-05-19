@@ -15,9 +15,7 @@
     <x-loader />
 <x-navbar />
 <div style="flex:1;">
-    {{-- ============================================================
-         HERO BANNER
-    ============================================================ --}}
+
     <section class="dash-hero">
         <div class="dash-hero-content">
             <p class="dash-hero-eyebrow">Bienvenido, {{ Auth::user()->name }}</p>
@@ -33,9 +31,7 @@
         </div>
     </section>
 
-    {{-- ============================================================
-         FEATURES BAR
-    ============================================================ --}}
+
     <div class="dash-features-bar">
         <div class="dash-feature">
             <i class="bi bi-search-heart"></i>
@@ -60,9 +56,7 @@
     </div>
 
 
-    {{-- ============================================================
-         SECCIÓN: CATÁLOGO DE LIBROS
-    ============================================================ --}}
+
     <section class="dash-section" id="recien">
         <div class="container">
             <div class="dash-section-header">
@@ -114,9 +108,6 @@
     </section>
 
 
-    {{-- ============================================================
-         SECCIÓN: RECOMENDADOS PARA TI
-    ============================================================ --}}
     @if($recomendaciones->isNotEmpty())
     <section class="dash-section" id="recomendados">
         <div class="container">
@@ -159,33 +150,6 @@
     @endif
 </div>
     <x-footer />
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        /* ── Navbar sombra al scroll ── */
-        const nav = document.getElementById('dashNav');
-        if (nav) {
-            window.addEventListener('scroll', () => {
-                nav.classList.toggle('scrolled', window.scrollY > 20);
-            }, { passive: true });
-        }
-
-
-        /* ── Avatar dropdown ── */
-        const avatarBtn      = document.getElementById('avatarBtn');
-        const avatarDropdown = document.getElementById('avatarDropdown');
-        if (avatarBtn) {
-            avatarBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                avatarDropdown.classList.toggle('open');
-            });
-            document.addEventListener('click', () => avatarDropdown.classList.remove('open'));
-        }
-    });
-    </script>
-
 
 </body>
 </html>
